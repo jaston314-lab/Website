@@ -34,7 +34,6 @@ const ArcherApp = (function () {
         STATE.breakpoint = detectBreakpoint();
         STATE.isMobile = STATE.breakpoint === 'mobile' || STATE.breakpoint === 'tablet';
         STATE.reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (STATE.isMobile) STATE.reduceMotion = true;
     }
 
     // ============================================
