@@ -2010,13 +2010,22 @@ button {
         padding-bottom: 60px;
     }
 
+    .hero__inner {
+        gap: 48px;
+    }
+
+    .hero__title {
+        margin-bottom: 20px;
+    }
+
     .hero__subtitle {
         max-width: 100%;
-        padding: 0;
+        padding: 0 4px;
     }
 
     .hero__image {
         max-height: 280px;
+        margin-top: 8px;
     }
 
     .hero__scroll-indicator {
@@ -2039,10 +2048,21 @@ button {
         display: none;
     }
 
+    .section-title {
+        font-size: clamp(28px, 6vw, 44px);
+        margin-bottom: 16px;
+    }
+
+    .section-tag {
+        margin-bottom: 12px;
+    }
+
     .services__header {
         text-align: center;
-        padding: 0 var(--container-padding);
-        margin-bottom: 40px;
+        padding: 0 var(--container-padding) 20px;
+        margin-bottom: 32px;
+        position: relative;
+        z-index: 2;
     }
 
     .services__wrapper {
