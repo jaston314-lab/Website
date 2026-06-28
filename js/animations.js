@@ -101,6 +101,8 @@ window.ArcherAnimations = (function () {
     // SERVICES HORIZONTAL SCROLL (optimised)
     // ============================================
     function initServicesScroll() {
+        if (window.innerWidth <= 768) return;
+
         const wrapper = document.querySelector('.services__wrapper');
         const scrollArea = document.getElementById('services-scroll');
         const progressBar = document.getElementById('services-progress');

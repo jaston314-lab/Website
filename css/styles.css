@@ -1992,9 +1992,30 @@ button {
     .gallery__item--tall {
         grid-row: span 1;
     }
+
+    .services__wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 24px;
+    }
+
+    .services__scroll-area {
+        overflow-x: visible;
+    }
 }
 
 @media (max-width: 480px) {
+    .service-card {
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+    }
+
+    .services__wrapper {
+        padding: 0 20px;
+    }
+
     .hero__actions {
         flex-direction: column;
     }
