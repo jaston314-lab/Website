@@ -2098,19 +2098,18 @@ button {
     }
 
     .about__visual {
-        height: 280px;
+        height: auto;
     }
 
     .about__image {
         position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
         margin-bottom: 12px;
-    }
-
-    .about__image--1,
-    .about__image--2,
-    .about__image--3 {
-        position: relative;
-        width: 100%;
+        width: 100% !important;
+        height: 220px !important;
     }
 
     .contact__inner {
