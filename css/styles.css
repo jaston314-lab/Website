@@ -919,12 +919,12 @@ button {
     inset: 0;
     background-size: cover;
     background-position: center;
-    opacity: 0.12;
+    opacity: 0.08;
     transition: opacity 0.6s;
 }
 
 .service-card:hover .service-card__bg {
-    opacity: 0.20;
+    opacity: 0.14;
 }
 
 .service-card__content {
@@ -935,6 +935,15 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+}
+
+.service-card__content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.6) 40%, transparent 75%);
+    z-index: -1;
+    border-radius: 0 0 16px 16px;
 }
 
 .service-card__number {
