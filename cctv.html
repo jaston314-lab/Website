@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://archersecurity.co.uk/cctv">
+    <title>CCTV Systems | Commercial &amp; Domestic | Telford, Shropshire | Archer Security</title>
+    <meta name="description" content="Professional HD CCTV installation across Telford, Shrewsbury &amp; Shropshire. IP cameras, remote viewing, cloud storage &amp; 24/7 monitoring. Hikvision VASP partner. Free quotes.">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "CCTV Systems — Commercial & Domestic",
+        "provider": { "@type": "LocalBusiness", "name": "Archer Security", "telephone": "+441952403696" },
+        "areaServed": ["Telford","Shrewsbury","Shropshire","Wolverhampton","Stafford","Stoke-on-Trent"],
+        "description": "Professional HD CCTV installation. IP cameras, remote viewing, cloud storage and 24/7 monitoring. Hikvision VASP partner."
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+
+    <style>
+        /* ============================================
+           FEATURE ROWS (ALTERNATING IMAGE/TEXT)
+        ============================================ */
+        .features {
+            padding: var(--section-padding) 0;
+        }
+
+        .features__header {
+            text-align: center;
+            padding: 0 var(--container-padding);
+            margin-bottom: 64px;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 520px;
+        }
+
+        .feature-row--reversed .feature-row__image {
+            order: 2;
+        }
+
+        .feature-row--reversed .feature-row__text {
+            order: 1;
+        }
+
+        .feature-row__image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-row__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease-out-expo);
+        }
+
+        .feature-row:hover .feature-row__image img {
+            transform: scale(1.05);
+        }
+
+        .feature-row__text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(40px, 6vw, 100px);
+            background: var(--color-bg);
+        }
+
+        .feature-row:nth-child(even) .feature-row__text {
+            background: var(--color-bg-secondary);
+        }
+
+        .feature-row__number {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
+        .feature-row__title {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 3.5vw, 48px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            color: var(--color-text);
+        }
+
+        .feature-row__desc {
+            font-size: clamp(15px, 1.2vw, 17px);
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+            max-width: 520px;
+        }
+
+        .feature-row__list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .feature-row__list li {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            background: var(--color-accent-glow);
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        /* ============================================
+           CTA SECTION
+        ============================================ */
+        .cta-section {
+            padding: var(--section-padding) var(--container-padding);
+            text-align: center;
+            background: var(--color-accent-glow);
+            color: var(--color-text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section .section-tag {
+            color: var(--color-accent);
+        }
+
+        .cta-section .section-title {
+            color: var(--color-text);
+        }
+
+        .cta-section .text-accent {
+            color: var(--color-accent);
+            position: relative;
+        }
+
+        .cta-section__desc {
+            font-size: clamp(15px, 1.1vw, 17px);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 36px;
+            color: var(--color-text-secondary);
+        }
+
+        /* ============================================
+           CLOUD STORAGE SECTION
+        ============================================ */
+        .cloud-storage {
+            padding: var(--section-padding) var(--container-padding);
+            background: linear-gradient(180deg, var(--color-bg) 0%, rgba(8, 61, 153, 0.03) 50%, var(--color-bg) 100%);
+            text-align: center;
+        }
+        .cloud-storage__inner { max-width: 900px; margin: 0 auto; }
+        .cloud-storage__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            color: var(--color-accent);
+            margin-bottom: 24px;
+        }
+        .cloud-storage__title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 4vw, 52px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--color-text);
+        }
+        .cloud-storage__desc {
+            font-size: clamp(15px, 1.2vw, 17px);
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+        .cloud-storage__features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .cloud-feature {
+            text-align: center;
+            padding: 32px 20px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-glass-border);
+            border-radius: 12px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .cloud-feature:hover {
+            border-color: rgba(8, 61, 153, 0.2);
+            box-shadow: 0 4px 20px rgba(8, 61, 153, 0.06);
+        }
+        .cloud-feature__icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            border-radius: 12px;
+            background: var(--color-accent-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+        }
+        .cloud-feature h4 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+        .cloud-feature p {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .cloud-storage__features { grid-template-columns: 1fr; gap: 20px; }
+        }
+
+        /* ============================================
+           RESPONSIVE: FEATURES / FAQ / CTA
+        ============================================ */
+        @media (max-width: 768px) {
+            .feature-row {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .feature-row--reversed .feature-row__image,
+            .feature-row--reversed .feature-row__text {
+                order: 0;
+            }
+
+            .feature-row__image {
+                height: 300px;
+            }
+
+            .feature-row__text {
+                padding: 40px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__content">
+            <canvas id="preloader-canvas" class="preloader__canvas"></canvas>
+            <div class="preloader__text">
+                <span class="preloader__word" data-text="ARCHER">ARCHER</span>
+                <span class="preloader__word" data-text="SECURITY">SECURITY</span>
+            </div>
+            <div class="preloader__progress">
+                <div class="preloader__bar"></div>
+                <span class="preloader__percent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CUSTOM CURSOR ==================== -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ==================== THREE.JS BACKGROUND ==================== -->
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-text">ARCHER</span>
+                <span class="nav__logo-sub">SECURITY</span>
+            </a>
+            <div class="nav__links" id="nav-links">
+                <a href="index.html" class="nav__link" data-hover>Home</a>
+                <a href="cctv.html" class="nav__link nav__link--active" data-hover>CCTV</a>
+                <a href="intruder-alarms.html" class="nav__link" data-hover>Intruder Alarms</a>
+                <a href="access-control.html" class="nav__link" data-hover>Access Control</a>
+                <a href="networking.html" class="nav__link" data-hover>Networking</a>
+                <a href="fire-alarms.html" class="nav__link" data-hover>Fire Alarms</a>
+                <a href="support.html" class="nav__link" data-hover>Support</a>
+                <a href="contact.html" class="nav__link nav__link--cta" data-hover>Get Protected</a>
+            </div>
+            <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero__inner">
+            <div class="hero__content">
+                <div class="hero__eyebrow">
+                    <span class="hero__eyebrow-line"></span>
+                    <span class="hero__eyebrow-text">HIKVISION VASP PARTNER</span>
+                </div>
+                <h1 class="hero__title">
+                    <span class="hero__title-line"><span class="hero__title-word">CCTV</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word">SYSTEMS</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word">TOTAL</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word hero__title-word--accent">SURVEILLANCE</span></span>
+                </h1>
+                <p class="hero__subtitle">
+                    Professional CCTV installation for homes and businesses across Telford, Shrewsbury, Wolverhampton, Stafford, Stoke-on-Trent and all of Shropshire. HD IP cameras, remote viewing, cloud backup and 24/7 monitoring.
+                </p>
+                <div class="hero__actions">
+                    <a href="contact.html" class="btn btn--primary" data-hover>
+                        <span>Get a Free Quote</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#features" class="btn btn--ghost" data-hover>
+                        <span>Explore Options</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero__image">
+                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&q=80" alt="Professional CCTV security camera system installation" loading="eager">
+                <div class="hero__image-overlay"></div>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <div class="hero__scroll-line"></div>
+            <span class="hero__scroll-text">SCROLL</span>
+        </div>
+    </section>
+
+    <!-- ==================== STATS BAR ==================== -->
+    <section class="stats" id="stats">
+        <div class="stats__inner">
+            <div class="stats__item">
+                <span class="stats__number" data-target="15">0</span>
+                <span class="stats__plus">+</span>
+                <span class="stats__label">Years Experience</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number" data-target="5000">0</span>
+                <span class="stats__plus">+</span>
+                <span class="stats__label">Installations</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number" data-target="24">0</span>
+                <span class="stats__unit">/7</span>
+                <span class="stats__label">Monitoring</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number" data-target="100">0</span>
+                <span class="stats__unit">%</span>
+                <span class="stats__label">SSAIB Certified</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES ==================== -->
+    <section class="features" id="features">
+        <div class="features__header">
+            <span class="section-tag">CAMERA TECHNOLOGY</span>
+            <h2 class="section-title">Advanced <span class="text-accent">Surveillance</span></h2>
+        </div>
+
+        <div class="feature-row">
+            <div class="feature-row__image">
+                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80" alt="HD IP security camera on modern building exterior" loading="lazy">
+            </div>
+            <div class="feature-row__text">
+                <span class="feature-row__number">01</span>
+                <h3 class="feature-row__title">HD IP Camera Technology</h3>
+                <p class="feature-row__desc">
+                    We supply and install the latest generation Hikvision IP cameras, delivering up to 10x the image quality of traditional analogue systems. As a Hikvision VASP Partner, we provide genuine, warrantied equipment with crystal-clear 4K resolution and advanced AI detection capabilities.
+                </p>
+                <ul class="feature-row__list">
+                    <li>4K Resolution</li>
+                    <li>Hikvision Partner</li>
+                    <li>AI Detection</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="feature-row feature-row--reversed">
+            <div class="feature-row__image">
+                <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=600&q=80" alt="24/7 CCTV monitoring control room with multiple screens" loading="lazy">
+            </div>
+            <div class="feature-row__text">
+                <span class="feature-row__number">02</span>
+                <h3 class="feature-row__title">24/7 Surveillance</h3>
+                <p class="feature-row__desc">
+                    Our DVR and NVR recording systems ensure your property is monitored around the clock. Access live feeds and recorded footage from any device — smartphone, tablet, or desktop. A visible camera system is one of the most effective deterrents against criminal activity.
+                </p>
+                <ul class="feature-row__list">
+                    <li>DVR / NVR</li>
+                    <li>Remote Viewing</li>
+                    <li>Visual Deterrent</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="feature-row">
+            <div class="feature-row__image">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="Range of CCTV camera types including static and PTZ" loading="lazy">
+            </div>
+            <div class="feature-row__text">
+                <span class="feature-row__number">03</span>
+                <h3 class="feature-row__title">Camera Options</h3>
+                <p class="feature-row__desc">
+                    Every property is different — so we offer a full spectrum of camera types. Choose from discreet static cameras for fixed positions, Pan-Tilt-Zoom cameras for flexible coverage, or covert cameras for situations where subtlety is paramount. We design bespoke camera layouts tailored to your site.
+                </p>
+                <ul class="feature-row__list">
+                    <li>Static Cameras</li>
+                    <li>PTZ Cameras</li>
+                    <li>Covert Cameras</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="feature-row feature-row--reversed">
+            <div class="feature-row__image">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Security engineer performing CCTV maintenance and support" loading="lazy">
+            </div>
+            <div class="feature-row__text">
+                <span class="feature-row__number">04</span>
+                <h3 class="feature-row__title">Ongoing Support</h3>
+                <p class="feature-row__desc">
+                    Installation is just the beginning. We offer comprehensive maintenance packages, regular software and firmware updates, and 24/7 emergency call-out support. When you choose Archer Security, you gain a long-term security partner dedicated to keeping your system running flawlessly.
+                </p>
+                <ul class="feature-row__list">
+                    <li>Maintenance</li>
+                    <li>Software Updates</li>
+                    <li>Emergency Call-Outs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CLOUD STORAGE ==================== -->
+    <section class="cloud-storage" id="cloud">
+        <div class="cloud-storage__inner">
+            <div class="cloud-storage__badge">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6.5 20C4.5 20 2.5 18.5 2.5 16C2.5 13.5 4.5 12 6.5 12C6.7 9.5 8.5 7.5 11 7C13 6.5 15.5 7 17 8.5C19 10 19.5 12.5 18.5 14.5C20 15 21.5 16.5 21.5 18.5C21.5 20.5 20 21.5 18 21.5H7C5 21.5 4 21 4 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>CLOUD STORAGE</span>
+            </div>
+            <h2 class="cloud-storage__title">Off-Site <span class="text-accent">Cloud Backup</span></h2>
+            <p class="cloud-storage__desc">
+                Never lose critical footage again. Our cloud storage solutions automatically back up your CCTV recordings to secure, off-site servers. Access your footage from anywhere, anytime — even if your on-site recorder is damaged or stolen.
+            </p>
+            <div class="cloud-storage__features">
+                <div class="cloud-feature">
+                    <div class="cloud-feature__icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 7v6l7 5 7-5V7l-7-5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h4>Automatic Backup</h4>
+                    <p>Footage uploaded in real-time — no manual intervention needed.</p>
+                </div>
+                <div class="cloud-feature">
+                    <div class="cloud-feature__icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8h10M5 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </div>
+                    <h4>Remote Access</h4>
+                    <p>View recordings from any device — phone, tablet, or desktop.</p>
+                </div>
+                <div class="cloud-feature">
+                    <div class="cloud-feature__icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 5v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </div>
+                    <h4>Redundant Storage</h4>
+                    <p>Data mirrored across multiple locations — total peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq" id="faq">
+        <div class="faq__inner">
+            <div class="faq__header">
+                <span class="section-tag">GOT QUESTIONS?</span>
+                <h2 class="section-title">Frequently <span class="text-accent">Asked</span></h2>
+            </div>
+            <div class="faq__list">
+                <details class="faq__item">
+                    <summary class="faq__question">Do I need CCTV for my home or business?</summary>
+                    <p class="faq__answer">Yes. CCTV is one of the most effective ways to protect your home or business. It acts as a deterrent to criminals while providing evidence in the event of a break-in or incident.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">What types of CCTV systems do you install?</summary>
+                    <p class="faq__answer">We offer both wired and wireless CCTV systems. From basic single-camera setups to advanced multi-camera systems with remote access, we can design and install a solution that fits.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Can I view my CCTV footage remotely?</summary>
+                    <p class="faq__answer">Absolutely. Many of our systems include mobile and desktop apps, allowing you to monitor your property in real time, no matter where you are.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Do you provide maintenance and repairs?</summary>
+                    <p class="faq__answer">Yes. We provide ongoing maintenance and 24/7 emergency repair services to keep your CCTV working effectively at all times.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta-section" id="cta">
+        <span class="section-tag">GET STARTED</span>
+        <h2 class="section-title">Secure Your <span class="text-accent">Property Today</span></h2>
+        <p class="cta-section__desc">
+            Don't leave your security to chance. Get in touch with our team for a free, no-obligation site survey and quote. We cover Shrewsbury, Telford, and all of Shropshire.
+        </p>
+        <a href="contact.html" class="btn btn--primary" data-hover>
+            <span>Get a Free Quote</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" id="footer">
+        <div class="footer__line"></div>
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <span class="footer__logo">ARCHER SECURITY</span>
+                <p class="footer__tagline">Protecting what matters, since day one.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Services</h4>
+                    <a href="cctv.html" data-hover>CCTV Systems</a>
+                    <a href="intruder-alarms.html" data-hover>Burglar Alarms</a>
+                    <a href="access-control.html" data-hover>Access Control</a>
+                    <a href="fire-alarms.html" data-hover>Fire Alarms</a>
+                    <a href="networking.html" data-hover>Network Installation</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Company</h4>
+                    <a href="index.html" data-hover>About Us</a>
+                    <a href="support.html" data-hover>Support</a>
+                    <a href="contact.html" data-hover>Contact</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Support</h4>
+                    <a href="support.html" data-hover>Remote Access</a>
+                    <a href="support.html" data-hover>Maintenance</a>
+                    <a href="support.html" data-hover>Emergency Call-Out</a>
+                    <a href="contact.html" data-hover>FAQs</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>&copy; 2025 Archer Security Ltd. Company No. 11340591. All rights reserved.</span>
+            <div class="footer__legal">
+                <a href="#" data-hover>Privacy Policy</a>
+                <a href="#" data-hover>Terms of Use</a>
+            </div>
+        </div>
+        <button class="footer__back-to-top" id="back-to-top" data-hover aria-label="Back to top">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4m0 0l-4 4m4-4l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+    </footer>
+
+    <script src="js/shaders.js" defer></script>
+    <script src="js/three-scenes.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>
+

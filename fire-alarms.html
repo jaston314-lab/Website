@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://archersecurity.co.uk/fire-alarms">
+    <title>Fire Alarms | Commercial Systems | Telford, Shropshire | Archer Security</title>
+    <meta name="description" content="BS 5839 compliant commercial fire alarm systems in Telford, Shrewsbury &amp; Shropshire. SSAIB certified installation, maintenance &amp; 24/7 monitoring. Free quotes.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+</head>
+<body>
+
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__content">
+            <canvas id="preloader-canvas" class="preloader__canvas"></canvas>
+            <div class="preloader__text">
+                <span class="preloader__word" data-text="FIRE">FIRE</span>
+                <span class="preloader__word" data-text="ALARMS">ALARMS</span>
+            </div>
+            <div class="preloader__progress">
+                <div class="preloader__bar"></div>
+                <span class="preloader__percent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CUSTOM CURSOR ==================== -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ==================== THREE.JS BACKGROUND ==================== -->
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-text">ARCHER</span>
+                <span class="nav__logo-sub">SECURITY</span>
+            </a>
+            <div class="nav__links" id="nav-links">
+                <a href="index.html" class="nav__link" data-hover>Home</a>
+                <a href="cctv.html" class="nav__link" data-hover>CCTV</a>
+                <a href="intruder-alarms.html" class="nav__link" data-hover>Intruder Alarms</a>
+                <a href="access-control.html" class="nav__link" data-hover>Access Control</a>
+                <a href="networking.html" class="nav__link" data-hover>Networking</a>
+                <a href="fire-alarms.html" class="nav__link nav__link--active" data-hover>Fire Alarms</a>
+                <a href="support.html" class="nav__link" data-hover>Support</a>
+                <a href="contact.html" class="nav__link nav__link--cta" data-hover>Get Protected</a>
+            </div>
+            <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero__inner">
+            <div class="hero__content">
+                <div class="hero__eyebrow">
+                    <span class="hero__eyebrow-line"></span>
+                    <span class="hero__eyebrow-text">LIFE SAFETY SYSTEMS</span>
+                </div>
+                <h1 class="hero__title">
+                    <span class="hero__title-line"><span class="hero__title-word">FIRE</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word">ALARMS</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word hero__title-word--accent">LIFE</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word">SAFETY</span></span>
+                </h1>
+                <p class="hero__subtitle">
+                    BS 5839 compliant commercial fire alarm systems in Telford, Shrewsbury and across Shropshire. Customised design, professional installation, 24/7 monitoring and ongoing maintenance by SSAIB certified engineers.
+                </p>
+                <div class="hero__actions">
+                    <a href="contact.html" class="btn btn--primary" data-hover>
+                        <span>Get a Free Quote</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#features" class="btn btn--ghost" data-hover>
+                        <span>Our Services</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero__image">
+                <img src="https://images.unsplash.com/photo-1565608087341-404b25492fee?w=800&q=80" alt="Commercial fire alarm smoke detector system" loading="eager">
+                <div class="hero__image-overlay"></div>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <div class="hero__scroll-line"></div>
+            <span class="hero__scroll-text">SCROLL</span>
+        </div>
+    </section>
+
+    <!-- ==================== STATS BAR ==================== -->
+    <section class="stats" id="stats">
+        <div class="stats__inner">
+            <div class="stats__item">
+                <span class="stats__number" data-target="15">0</span>
+                <span class="stats__plus">+</span>
+                <span class="stats__label">Years Experience</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number">24</span>
+                <span class="stats__unit">/7</span>
+                <span class="stats__label">Monitoring</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number">BS</span>
+                <span class="stats__label">5839 Compliant</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number">SSAIB</span>
+                <span class="stats__label">Certified</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES ==================== -->
+    <section class="features" id="features">
+        <div class="features__header">
+            <span class="section-tag">WHAT WE OFFER</span>
+            <h2 class="section-title">Fire Alarm <span class="text-accent">Services</span></h2>
+        </div>
+        <div class="features__grid">
+            <article class="feature-card">
+                <div class="feature-card__img">
+                    <img src="https://images.unsplash.com/photo-1565608087341-404b25492fee?w=600&q=80" alt="Customised fire alarm system design" loading="lazy">
+                </div>
+                <div class="feature-card__content">
+                    <h3 class="feature-card__title">CUSTOMISED FIRE ALARM SYSTEMS</h3>
+                    <p class="feature-card__desc">Bespoke fire alarm systems tailored to your commercial space. From small businesses to large corporate complexes using advanced detection methods.</p>
+                </div>
+            </article>
+            <article class="feature-card">
+                <div class="feature-card__img">
+                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80" alt="State-of-the-art fire detection technology" loading="lazy">
+                </div>
+                <div class="feature-card__content">
+                    <h3 class="feature-card__title">STATE-OF-THE-ART TECHNOLOGY</h3>
+                    <p class="feature-card__desc">Cutting-edge smoke, heat, and flame detection. Early warning and rapid response systems utilising the latest fire safety advancements.</p>
+                </div>
+            </article>
+            <article class="feature-card">
+                <div class="feature-card__img">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80" alt="Professional fire alarm installation by technician" loading="lazy">
+                </div>
+                <div class="feature-card__content">
+                    <h3 class="feature-card__title">PROFESSIONAL INSTALLATION</h3>
+                    <p class="feature-card__desc">Highly trained technicians delivering top-quality installation with minimal disruption. Adhering to industry best practices and regulations.</p>
+                </div>
+            </article>
+            <article class="feature-card">
+                <div class="feature-card__img">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Fire alarm testing and maintenance service" loading="lazy">
+                </div>
+                <div class="feature-card__content">
+                    <h3 class="feature-card__title">TESTING &amp; MAINTENANCE</h3>
+                    <p class="feature-card__desc">Comprehensive testing and maintenance to keep your system in peak condition. Weekly testing and professional servicing twice yearly.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq" id="faq">
+        <div class="faq__inner">
+            <div class="faq__header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Common <span class="text-accent">Questions</span></h2>
+            </div>
+            <div class="faq__list">
+                <details class="faq__item">
+                    <summary class="faq__question">How often should fire alarms be tested?</summary>
+                    <p class="faq__answer">Weekly testing is recommended, with professional servicing at least twice a year for full compliance.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Conventional vs addressable fire alarm?</summary>
+                    <p class="faq__answer">Conventional systems divide property into zones. Addressable systems pinpoint the exact detector, preferred for larger buildings.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Do fire alarms need to connect to other security systems?</summary>
+                    <p class="faq__answer">Integration with CCTV and access control enhances safety — doors can auto-unlock during a fire for safe evacuation.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Are customised systems more expensive?</summary>
+                    <p class="faq__answer">They may involve higher initial investment but are designed for your exact requirements, avoiding unnecessary features.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">What maintenance is required after installation?</summary>
+                    <p class="faq__answer">Routine checks of detectors, batteries, control panels, and sounders. Professional servicing identifies issues early.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta" id="cta">
+        <div class="cta__inner">
+            <h2 class="cta__title">PROTECT LIVES AND PROPERTY</h2>
+            <p class="cta__desc">Don't leave fire safety to chance. Get a free, no-obligation quote today.</p>
+            <a href="contact.html" class="btn btn--primary" data-hover>
+                <span>Get a Free Quote</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" id="footer">
+        <div class="footer__line"></div>
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <span class="footer__logo">ARCHER SECURITY</span>
+                <p class="footer__tagline">Protecting what matters, since day one.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Services</h4>
+                    <a href="intruder-alarms.html" data-hover>Burglar Alarms</a>
+                    <a href="cctv.html" data-hover>CCTV Systems</a>
+                    <a href="access-control.html" data-hover>Access Control</a>
+                    <a href="fire-alarms.html" data-hover>Fire Alarms</a>
+                    <a href="networking.html" data-hover>Electronic Gates</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Company</h4>
+                    <a href="index.html#about" data-hover>About Us</a>
+                    <a href="index.html#about" data-hover>Meet the Team</a>
+                    <a href="index.html#partners" data-hover>Accreditations</a>
+                    <a href="contact.html" data-hover>Careers</a>
+                    <a href="contact.html" data-hover>Contact</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Support</h4>
+                    <a href="support.html" data-hover>Remote Access</a>
+                    <a href="support.html" data-hover>Maintenance</a>
+                    <a href="support.html" data-hover>Emergency Call-Out</a>
+                    <a href="#faq" data-hover>FAQs</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>&copy; 2025 Archer Security Ltd. Company No. 11340591. All rights reserved.</span>
+            <div class="footer__legal">
+                <a href="#" data-hover>Privacy Policy</a>
+                <a href="#" data-hover>Terms of Use</a>
+            </div>
+        </div>
+        <button class="footer__back-to-top" id="back-to-top" data-hover aria-label="Back to top">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4m0 0l-4 4m4-4l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+    </footer>
+
+    <script src="js/shaders.js" defer></script>
+    <script src="js/three-scenes.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>
+

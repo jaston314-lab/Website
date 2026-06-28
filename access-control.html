@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://archersecurity.co.uk/access-control">
+    <title>Access Control Systems | Telford, Shrewsbury | Archer Security</title>
+    <meta name="description" content="Commercial access control installation in Telford, Shrewsbury &amp; Shropshire. Keypad, fob, biometric &amp; intercom entry systems. Pyronix &amp; Paxton partner. SSAIB certified.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+</head>
+<body>
+
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__content">
+            <canvas id="preloader-canvas" class="preloader__canvas"></canvas>
+            <div class="preloader__text">
+                <span class="preloader__word" data-text="ARCHER">ARCHER</span>
+                <span class="preloader__word" data-text="SECURITY">SECURITY</span>
+            </div>
+            <div class="preloader__progress">
+                <div class="preloader__bar"></div>
+                <span class="preloader__percent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CUSTOM CURSOR ==================== -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ==================== THREE.JS BACKGROUND ==================== -->
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-text">ARCHER</span>
+                <span class="nav__logo-sub">SECURITY</span>
+            </a>
+            <div class="nav__links" id="nav-links">
+                <a href="index.html" class="nav__link" data-hover>Home</a>
+                <a href="cctv.html" class="nav__link" data-hover>CCTV</a>
+                <a href="intruder-alarms.html" class="nav__link" data-hover>Intruder Alarms</a>
+                <a href="access-control.html" class="nav__link nav__link--active" data-hover>Access Control</a>
+                <a href="networking.html" class="nav__link" data-hover>Networking</a>
+                <a href="fire-alarms.html" class="nav__link" data-hover>Fire Alarms</a>
+                <a href="support.html" class="nav__link" data-hover>Support</a>
+                <a href="contact.html" class="nav__link nav__link--cta" data-hover>Get Protected</a>
+            </div>
+            <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero__inner">
+            <div class="hero__content">
+                <div class="hero__eyebrow">
+                    <span class="hero__eyebrow-line"></span>
+                    <span class="hero__eyebrow-text">PYRONIX &amp; COMELIT PARTNER</span>
+                </div>
+                <h1 class="hero__title">
+                    <span class="hero__title-line"><span class="hero__title-word">ACCESS</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word">CONTROL</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word hero__title-word--accent">TOTAL</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word hero__title-word--accent">AUTHORITY</span></span>
+                </h1>
+                <p class="hero__subtitle">
+                    Commercial access control systems installed across Telford, Shrewsbury and Shropshire. Keypad, fob, biometric and intercom entry — secure your business premises today.
+                </p>
+                <div class="hero__actions">
+                    <a href="contact.html" class="btn btn--primary" data-hover>
+                        <span>Get a Free Quote</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#features" class="btn btn--ghost" data-hover>
+                        <span>View Systems</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero__image">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80" alt="Access control door entry system" loading="eager">
+                <div class="hero__image-overlay"></div>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <div class="hero__scroll-line"></div>
+            <span class="hero__scroll-text">SCROLL</span>
+        </div>
+    </section>
+
+    <!-- ==================== STATS BAR ==================== -->
+    <section class="stats" id="stats">
+        <div class="stats__inner">
+            <div class="stats__item">
+                <span class="stats__number" data-target="15">0</span>
+                <span class="stats__plus">+</span>
+                <span class="stats__label">Years</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number" data-target="6">0</span>
+                <span class="stats__label">System Types</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number">City &amp; Guilds</span>
+                <span class="stats__label">Qualified</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number">SSAIB</span>
+                <span class="stats__label">Certified</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES ==================== -->
+    <section class="features" id="features">
+        <div class="features__header">
+            <span class="section-tag">SYSTEM OPTIONS</span>
+            <h2 class="section-title">Access Control <span class="text-accent">Systems</span></h2>
+            <p class="features__desc">From simple keypad entry to fully integrated biometric solutions — we design and install the right system for your property.</p>
+        </div>
+        <div class="features__grid">
+
+            <article class="feature-card">
+                <div class="feature-card__image">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="Swipe card and keypad access control system" loading="lazy">
+                </div>
+                <div class="feature-card__content">
+                    <h3 class="feature-card__title">SWIPE CARD &amp; KEYPAD SYSTEMS</h3>
+                    <p class="feature-card__desc">Simple, effective access control. Swipe card readers and keypad code locking systems for residential and commercial properties.</p>
+                </div>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-card__image">
+                    <img src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=600&q=80" alt="Biometric fingerprint access reader" loading="lazy">
+                </div>
+                <div class="feature-card__content">
+                    <h3 class="feature-card__title">BIOMETRIC &amp; TOUCH SYSTEMS</h3>
+                    <p class="feature-card__desc">Advanced biometric access options including fingerprint and hand readers. Touch card reader systems for seamless entry.</p>
+                </div>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-card__image">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Video intercom door entry system" loading="lazy">
+                </div>
+                <div class="feature-card__content">
+                    <h3 class="feature-card__title">INTERCOM &amp; DOOR ENTRY</h3>
+                    <p class="feature-card__desc">Full intercom systems with video capability. Standalone units for small areas or PC-driven systems for complete control.</p>
+                </div>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-card__image">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80" alt="Wireless and PC-driven access control management" loading="lazy">
+                </div>
+                <div class="feature-card__content">
+                    <h3 class="feature-card__title">WIRELESS &amp; PC-DRIVEN SYSTEMS</h3>
+                    <p class="feature-card__desc">Wireless access control options for flexible installation. PC-driven systems provide complete management and audit trails.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq" id="faq">
+        <div class="faq__inner">
+            <div class="faq__header">
+                <span class="section-tag">YOUR QUESTIONS</span>
+                <h2 class="section-title">Frequently <span class="text-accent">Asked</span></h2>
+            </div>
+            <div class="faq__list">
+                <details class="faq__item">
+                    <summary class="faq__question">What's the difference between access control and traditional locks?</summary>
+                    <p class="faq__answer">Traditional locks rely on physical keys, which can be lost or copied. Access control uses digital credentials, making them more secure and easier to manage.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Can systems be customised for different properties?</summary>
+                    <p class="faq__answer">Yes, door entry systems can be tailored to suit both domestic and commercial needs.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">How do access control systems improve convenience?</summary>
+                    <p class="faq__answer">Employees can use a single card for multiple areas. Homeowners can grant temporary codes to visitors.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Are they suitable for businesses with high staff turnover?</summary>
+                    <p class="faq__answer">Absolutely. Access rights can be updated or revoked immediately, ensuring only current employees have entry.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta" id="cta">
+        <div class="cta__inner">
+            <h2 class="cta__title">TAKE CONTROL OF YOUR PROPERTY</h2>
+            <p class="cta__desc">Secure your premises with a professionally installed access control system. Free consultations and no-obligation quotes available now.</p>
+            <a href="contact.html" class="btn btn--primary" data-hover>
+                <span>Get a Free Quote</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" id="footer">
+        <div class="footer__line"></div>
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <span class="footer__logo">ARCHER SECURITY</span>
+                <p class="footer__tagline">Protecting what matters, since day one.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Services</h4>
+                    <a href="intruder-alarms.html" data-hover>Burglar Alarms</a>
+                    <a href="cctv.html" data-hover>CCTV Systems</a>
+                    <a href="access-control.html" data-hover>Access Control</a>
+                    <a href="fire-alarms.html" data-hover>Fire Alarms</a>
+                    <a href="networking.html" data-hover>Networking</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Company</h4>
+                    <a href="index.html" data-hover>Home</a>
+                    <a href="contact.html" data-hover>Contact</a>
+                    <a href="support.html" data-hover>Support</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Support</h4>
+                    <a href="support.html" data-hover>Remote Access</a>
+                    <a href="support.html" data-hover>Maintenance</a>
+                    <a href="support.html" data-hover>Emergency Call-Out</a>
+                    <a href="contact.html" data-hover>FAQs</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>&copy; 2025 Archer Security Ltd. Company No. 11340591. All rights reserved.</span>
+            <div class="footer__legal">
+                <a href="#" data-hover>Privacy Policy</a>
+                <a href="#" data-hover>Terms of Use</a>
+            </div>
+        </div>
+        <button class="footer__back-to-top" id="back-to-top" data-hover aria-label="Back to top">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4m0 0l-4 4m4-4l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+    </footer>
+
+    <script src="js/shaders.js" defer></script>
+    <script src="js/three-scenes.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>

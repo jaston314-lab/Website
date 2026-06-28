@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://archersecurity.co.uk/intruder-alarms">
+    <title>Commercial &amp; Monitored Intruder Alarms | Telford, Shropshire | Archer Security</title>
+    <meta name="description" content="SSAIB approved commercial &amp; monitored intruder alarm installation in Telford, Shrewsbury &amp; across Shropshire. Insurance-approved, police-response alarms with 24/7 monitoring. Free site surveys.">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Commercial & Monitored Intruder Alarms",
+        "provider": { "@type": "LocalBusiness", "name": "Archer Security", "telephone": "+441952403696" },
+        "areaServed": ["Telford","Shrewsbury","Shropshire","Wolverhampton","Stafford","Stoke-on-Trent"],
+        "description": "SSAIB approved commercial and monitored intruder alarm installation. Insurance-approved, police-response alarms with 24/7 monitoring."
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+
+    <style>
+        /* ============================================
+           FEATURES (Alternating Rows)
+           ============================================ */
+        .features {
+            position: relative;
+            z-index: 1;
+            padding: var(--section-padding) 0;
+            background: var(--color-bg);
+        }
+
+        .features__header {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            margin-bottom: 60px;
+        }
+
+        .feature-row {
+            padding: 80px var(--container-padding);
+        }
+
+        .feature-row--alt {
+            background: var(--color-bg-secondary);
+        }
+
+        .feature-row__inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .feature-row--reverse .feature-row__image {
+            order: 2;
+        }
+
+        .feature-row--reverse .feature-row__content {
+            order: 1;
+        }
+
+        .feature-row__image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px var(--color-card-shadow);
+            border: 1px solid var(--color-glass-border);
+        }
+
+        .feature-row__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            aspect-ratio: 4 / 3;
+        }
+
+        .feature-row__number {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            display: block;
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+
+        .feature-row__title {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--color-text);
+        }
+
+        .feature-row__desc {
+            font-size: clamp(15px, 1.5vw, 17px);
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta-section {
+            position: relative;
+            z-index: 1;
+            padding: var(--section-padding) 0;
+            background: var(--color-accent-glow);
+            text-align: center;
+        }
+
+        .cta-section__inner {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        .cta-section__title {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: var(--color-text);
+        }
+
+        .cta-section__desc {
+            font-size: clamp(16px, 1.6vw, 18px);
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .feature-row {
+                padding: 60px var(--container-padding);
+            }
+
+            .feature-row__inner {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .feature-row--reverse .feature-row__image {
+                order: 0;
+            }
+
+            .feature-row--reverse .feature-row__content {
+                order: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__content">
+            <canvas id="preloader-canvas" class="preloader__canvas"></canvas>
+            <div class="preloader__text">
+                <span class="preloader__word" data-text="ARCHER">ARCHER</span>
+                <span class="preloader__word" data-text="SECURITY">SECURITY</span>
+            </div>
+            <div class="preloader__progress">
+                <div class="preloader__bar"></div>
+                <span class="preloader__percent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CUSTOM CURSOR ==================== -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ==================== THREE.JS BACKGROUND ==================== -->
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-text">ARCHER</span>
+                <span class="nav__logo-sub">SECURITY</span>
+            </a>
+            <div class="nav__links" id="nav-links">
+                <a href="index.html" class="nav__link" data-hover>Home</a>
+                <a href="cctv.html" class="nav__link" data-hover>CCTV</a>
+                <a href="intruder-alarms.html" class="nav__link nav__link--active" data-hover>Intruder Alarms</a>
+                <a href="access-control.html" class="nav__link" data-hover>Access Control</a>
+                <a href="networking.html" class="nav__link" data-hover>Networking</a>
+                <a href="fire-alarms.html" class="nav__link" data-hover>Fire Alarms</a>
+                <a href="support.html" class="nav__link" data-hover>Support</a>
+                <a href="contact.html" class="nav__link nav__link--cta" data-hover>Get Protected</a>
+            </div>
+            <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero__inner">
+            <div class="hero__content">
+                <div class="hero__eyebrow">
+                    <span class="hero__eyebrow-line"></span>
+                    <span class="hero__eyebrow-text">SSAIB APPROVED INSTALLER</span>
+                </div>
+                <h1 class="hero__title">
+                    <span class="hero__title-line"><span class="hero__title-word">INTRUDER</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word">ALARMS</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word hero__title-word--accent">ABSOLUTE</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word hero__title-word--accent">PROTECTION</span></span>
+                </h1>
+                <p class="hero__subtitle">
+                    Commercial and monitored intruder alarm installation in Telford, Shrewsbury and across Shropshire. Insurance-approved, police-response alarms with 24/7 monitoring — protecting homes and businesses throughout the West Midlands.
+                </p>
+                <div class="hero__actions">
+                    <a href="contact.html" class="btn btn--primary" data-hover>
+                        <span>Get a Free Quote</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#features" class="btn btn--ghost" data-hover>
+                        <span>View Options</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero__image">
+                <img src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=800&q=80" alt="Intruder alarm keypad and security system" loading="eager">
+                <div class="hero__image-overlay"></div>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <div class="hero__scroll-line"></div>
+            <span class="hero__scroll-text">SCROLL</span>
+        </div>
+    </section>
+
+    <!-- ==================== STATS BAR ==================== -->
+    <section class="stats" id="stats">
+        <div class="stats__inner">
+            <div class="stats__item">
+                <span class="stats__number" data-target="15">0</span>
+                <span class="stats__plus">+</span>
+                <span class="stats__label">Years Protecting</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number" data-target="5000">0</span>
+                <span class="stats__plus">+</span>
+                <span class="stats__label">Installations</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number" data-target="24">0</span>
+                <span class="stats__unit">/7</span>
+                <span class="stats__label">Call-Out Service</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number stats__number--badge">Police</span>
+                <span class="stats__label">Approved</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES ==================== -->
+    <section class="features" id="features">
+        <div class="features__header">
+            <span class="section-tag">WHAT WE OFFER</span>
+            <h2 class="section-title">Alarm <span class="text-accent">Solutions</span></h2>
+        </div>
+
+        <div class="feature-row">
+            <div class="feature-row__inner">
+                <div class="feature-row__image">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80" alt="Monitored and audible alarm system installation" loading="lazy">
+                </div>
+                <div class="feature-row__content">
+                    <span class="feature-row__number">01</span>
+                    <h3 class="feature-row__title">MONITORED &amp; AUDIBLE ALARMS</h3>
+                    <p class="feature-row__desc">
+                        Alert you when your property is compromised. Comprehensive service covering installations, maintenance, repairs and upgrades.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-row feature-row--alt feature-row--reverse">
+            <div class="feature-row__inner">
+                <div class="feature-row__image">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80" alt="Wireless and smart home alarm system" loading="lazy">
+                </div>
+                <div class="feature-row__content">
+                    <span class="feature-row__number">02</span>
+                    <h3 class="feature-row__title">WIRELESS &amp; SMART SYSTEMS</h3>
+                    <p class="feature-row__desc">
+                        Latest lithium-ion battery technology. App-connected systems allowing you to monitor from anywhere in the world. CCTV can also be linked.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-row">
+            <div class="feature-row__inner">
+                <div class="feature-row__image">
+                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80" alt="Police response and ARC monitored alarm system" loading="lazy">
+                </div>
+                <div class="feature-row__content">
+                    <span class="feature-row__number">03</span>
+                    <h3 class="feature-row__title">POLICE RESPONSE &amp; ARC MONITORED</h3>
+                    <p class="feature-row__desc">
+                        ARC (Alarm Receiving Centre) monitored alarms for high-risk properties. Alerts keyholders when triggered.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-row feature-row--alt feature-row--reverse">
+            <div class="feature-row__inner">
+                <div class="feature-row__image">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Perimeter and intruder detection for property exterior" loading="lazy">
+                </div>
+                <div class="feature-row__content">
+                    <span class="feature-row__number">04</span>
+                    <h3 class="feature-row__title">PERIMETER &amp; INTRUDER DETECTION</h3>
+                    <p class="feature-row__desc">
+                        Strong barrier protection for your property exterior. Detects unauthorised entry and triggers response before entry occurs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq" id="faq">
+        <div class="faq__inner">
+            <div class="faq__header">
+                <span class="section-tag">COMMON QUESTIONS</span>
+                <h2 class="section-title">Frequently Asked <span class="text-accent">Questions</span></h2>
+            </div>
+            <div class="faq__list">
+                <details class="faq__item">
+                    <summary class="faq__question">What types of burglar alarms do you install?</summary>
+                    <p class="faq__answer">We offer wired and wireless alarms, audible-only systems, and fully integrated solutions that work alongside CCTV and access control.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Can the alarm be tailored to my home?</summary>
+                    <p class="faq__answer">Yes, every system is fully tailored to the layout and requirements of your property.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">How quickly can it be installed?</summary>
+                    <p class="faq__answer">Most systems are completed within one to two days by our qualified engineers.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Is ongoing support available?</summary>
+                    <p class="faq__answer">Absolutely. We provide ongoing maintenance and 24/7 call-out support to keep your system operational.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Are they suitable for all property types?</summary>
+                    <p class="faq__answer">Yes, from small flats to large houses. Each installation is customised to the specific requirements of your home.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta-section" id="cta">
+        <div class="cta-section__inner">
+            <h2 class="cta-section__title">SECURE YOUR HOME TODAY</h2>
+            <p class="cta-section__desc">
+                Ready to protect your property with a professionally installed intruder alarm? Contact our team today for a free, no-obligation quote and site survey.
+            </p>
+            <a href="contact.html" class="btn btn--primary" data-hover>
+                <span>Get Your Free Quote</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" id="footer">
+        <div class="footer__line"></div>
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <span class="footer__logo">ARCHER SECURITY</span>
+                <p class="footer__tagline">Protecting what matters, since day one.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Services</h4>
+                    <a href="intruder-alarms.html" data-hover>Intruder Alarms</a>
+                    <a href="cctv.html" data-hover>CCTV Systems</a>
+                    <a href="access-control.html" data-hover>Access Control</a>
+                    <a href="fire-alarms.html" data-hover>Fire Alarms</a>
+                    <a href="networking.html" data-hover>Networking</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Company</h4>
+                    <a href="index.html#about" data-hover>About Us</a>
+                    <a href="index.html#about" data-hover>Accreditations</a>
+                    <a href="#" data-hover>Careers</a>
+                    <a href="contact.html" data-hover>Contact</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Support</h4>
+                    <a href="support.html" data-hover>Remote Access</a>
+                    <a href="support.html" data-hover>Maintenance</a>
+                    <a href="support.html" data-hover>Emergency Call-Out</a>
+                    <a href="support.html" data-hover>FAQs</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>&copy; 2025 Archer Security Ltd. Company No. 11340591. All rights reserved.</span>
+            <div class="footer__legal">
+                <a href="#" data-hover>Privacy Policy</a>
+                <a href="#" data-hover>Terms of Use</a>
+            </div>
+        </div>
+        <button class="footer__back-to-top" id="back-to-top" data-hover aria-label="Back to top">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4m0 0l-4 4m4-4l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+    </footer>
+
+    <script src="js/shaders.js" defer></script>
+    <script src="js/three-scenes.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>
+

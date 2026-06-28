@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://archersecurity.co.uk/">
+
+    <meta property="og:title" content="Archer Security | SSAIB Certified Security Systems — Telford, Shropshire">
+    <meta property="og:description" content="SSAIB certified security installers covering Telford, Shrewsbury &amp; Shropshire. Commercial &amp; domestic intruder alarms, CCTV, access control, fire alarms &amp; UniFi networking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://archersecurity.co.uk/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Archer Security | SSAIB Certified Security Systems">
+    <meta name="twitter:description" content="SSAIB certified security installers — Telford, Shropshire. Intruder alarms, CCTV, access control, fire alarms &amp; networking.">
+    <title>Archer Security | SSAIB Certified Security Systems — Telford, Shropshire</title>
+    <meta name="description" content="SSAIB certified security installers covering Telford, Shrewsbury &amp; Shropshire. Commercial &amp; domestic intruder alarms, CCTV, access control, fire alarms &amp; UniFi networking. Free quotes.">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Archer Security",
+        "description": "SSAIB certified security system installers covering Telford, Shrewsbury and Shropshire. Commercial and domestic intruder alarms, CCTV, access control, fire alarms and UniFi networking.",
+        "url": "https://archersecurity.co.uk",
+        "telephone": "+441952403696",
+        "email": "info@archersecurity.co.uk",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Unit H8, Halesfield 19",
+            "addressLocality": "Telford",
+            "addressRegion": "Shropshire",
+            "postalCode": "TF7 4QT",
+            "addressCountry": "GB"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.6432,
+            "longitude": -2.4283
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                "opens": "09:00",
+                "closes": "17:30"
+            }
+        ],
+        "areaServed": [
+            "Telford",
+            "Shrewsbury",
+            "Shropshire",
+            "Wolverhampton",
+            "Stafford",
+            "Stoke-on-Trent"
+        ],
+        "hasCertification": {
+            "@type": "Certification",
+            "name": "SSAIB Certified"
+        },
+        "sameAs": [
+            "https://www.facebook.com/alarmsandcctv/"
+        ]
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+</head>
+<body>
+
+    <!-- Holographic scanline overlay -->
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__content">
+            <canvas id="preloader-canvas" class="preloader__canvas"></canvas>
+            <div class="preloader__text">
+                <span class="preloader__word" data-text="ARCHER">ARCHER</span>
+                <span class="preloader__word" data-text="SECURITY">SECURITY</span>
+            </div>
+            <div class="preloader__progress">
+                <div class="preloader__bar"></div>
+                <span class="preloader__percent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CUSTOM CURSOR ==================== -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ==================== THREE.JS BACKGROUND ==================== -->
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo">
+                <span class="nav__logo-text">ARCHER</span>
+                <span class="nav__logo-sub">SECURITY</span>
+            </a>
+            <div class="nav__links" id="nav-links">
+                <a href="index.html" class="nav__link nav__link--active" data-hover>Home</a>
+                <a href="cctv.html" class="nav__link" data-hover>CCTV</a>
+                <a href="intruder-alarms.html" class="nav__link" data-hover>Intruder Alarms</a>
+                <a href="access-control.html" class="nav__link" data-hover>Access Control</a>
+                <a href="networking.html" class="nav__link" data-hover>Networking</a>
+                <a href="fire-alarms.html" class="nav__link" data-hover>Fire Alarms</a>
+                <a href="support.html" class="nav__link" data-hover>Support</a>
+                <a href="contact.html" class="nav__link nav__link--cta" data-hover>Get Protected</a>
+            </div>
+            <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero__inner">
+            <div class="hero__content">
+                <div class="hero__eyebrow">
+                    <span class="hero__eyebrow-line"></span>
+                    <span class="hero__eyebrow-text">SSAIB CERTIFIED SECURITY INSTALLERS</span>
+                </div>
+                <h1 class="hero__title">
+                    <span class="hero__title-line"><span class="hero__title-word">WE</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word">PROTECT</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word hero__title-word--accent">WHAT</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word">MATTERS</span></span>
+                </h1>
+                <p class="hero__subtitle">
+                    SSAIB certified security systems for homes and businesses across Telford, Shrewsbury, and all of Shropshire — including Wolverhampton, Stafford, and Stoke-on-Trent.
+                </p>
+                <div class="hero__actions">
+                    <a href="#contact" class="btn btn--primary" data-hover>
+                        <span>Get a Free Quote</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#services" class="btn btn--ghost" data-hover>
+                        <span>Explore Services</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero__image">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80" alt="Professional CCTV installation on commercial building in Shropshire" loading="eager">
+                <div class="hero__image-overlay"></div>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <div class="hero__scroll-line"></div>
+            <span class="hero__scroll-text">SCROLL</span>
+        </div>
+    </section>
+
+    <!-- ==================== STATS BAR ==================== -->
+    <section class="stats" id="stats">
+        <div class="stats__inner">
+            <div class="stats__item">
+                <span class="stats__number" data-target="15">0</span>
+                <span class="stats__plus">+</span>
+                <span class="stats__label">Years in Telford</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number" data-target="5000">0</span>
+                <span class="stats__plus">+</span>
+                <span class="stats__label">Shropshire Installations</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number" data-target="24">0</span>
+                <span class="stats__unit">/7</span>
+                <span class="stats__label">Emergency Call-Out</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number" data-target="100">0</span>
+                <span class="stats__unit">%</span>
+                <span class="stats__label">SSAIB Certified</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES (Horizontal Scroll) ==================== -->
+    <section class="services" id="services">
+        <div class="services__header">
+            <span class="section-tag">WHAT WE DO</span>
+            <h2 class="section-title">Our <span class="text-accent">Services</span></h2>
+        </div>
+        <div class="services__scroll-area" id="services-scroll">
+            <div class="services__track">
+                <div class="services__wrapper">
+
+                <article class="service-card" data-service="alarms">
+                    <img class="service-card__img" src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=600&q=80" alt="Burglar alarm keypad with blue backlight">
+                    <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=600&q=80')"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">01</span>
+                        <h3 class="service-card__title">Burglar<br>Alarms</h3>
+                        <p class="service-card__desc">SSAIB approved commercial and domestic intruder alarms. Insurance-approved monitored systems installed across Telford, Shrewsbury and Shropshire.</p>
+                        <a href="intruder-alarms.html" class="service-card__cta" data-hover>
+                            <span>Learn More</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="service-card__visual">
+                        <div class="service-card__icon service-card__icon--alarm"></div>
+                    </div>
+                </article>
+
+                <article class="service-card" data-service="cctv">
+                    <img class="service-card__img" src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=80" alt="CCTV security camera monitoring system">
+                    <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=80')"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">02</span>
+                        <h3 class="service-card__title">CCTV<br>Systems</h3>
+                        <p class="service-card__desc">HD IP CCTV systems with remote viewing and cloud backup. Professional installation for homes and businesses in Telford and across Shropshire.</p>
+                        <a href="cctv.html" class="service-card__cta" data-hover>
+                            <span>Learn More</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="service-card__visual">
+                        <div class="service-card__icon service-card__icon--cctv"></div>
+                    </div>
+                </article>
+
+                <article class="service-card" data-service="access">
+                    <img class="service-card__img" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="Electronic access control fob reader">
+                    <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80')"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">03</span>
+                        <h3 class="service-card__title">Access<br>Control</h3>
+                        <p class="service-card__desc">Keypad, fob, card and biometric access control for commercial premises. Installed and maintained across the West Midlands.</p>
+                        <a href="access-control.html" class="service-card__cta" data-hover>
+                            <span>Learn More</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="service-card__visual">
+                        <div class="service-card__icon service-card__icon--access"></div>
+                    </div>
+                </article>
+
+                <article class="service-card" data-service="fire">
+                    <img class="service-card__img" src="https://images.unsplash.com/photo-1565608087341-404b25492fee?w=600&q=80" alt="Fire alarm smoke detector on ceiling">
+                    <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1565608087341-404b25492fee?w=600&q=80')"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">04</span>
+                        <h3 class="service-card__title">Fire<br>Alarms</h3>
+                        <p class="service-card__desc">BS 5839 compliant fire detection and alarm systems. Designed to meet all regulatory standards for commercial properties in Shropshire.</p>
+                        <a href="fire-alarms.html" class="service-card__cta" data-hover>
+                            <span>Learn More</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="service-card__visual">
+                        <div class="service-card__icon service-card__icon--fire"></div>
+                    </div>
+                </article>
+
+                <article class="service-card" data-service="gates">
+                    <img class="service-card__img" src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="Automated electronic entrance gates">
+                    <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80')"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">05</span>
+                        <h3 class="service-card__title">Electronic<br>Gates</h3>
+                        <p class="service-card__desc">Automated gate systems for residential and commercial entrances. Swing and sliding gate automation with intercom integration.</p>
+                        <a href="contact.html" class="service-card__cta" data-hover>
+                            <span>Learn More</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="service-card__visual">
+                        <div class="service-card__icon service-card__icon--gates"></div>
+                    </div>
+                </article>
+
+                <article class="service-card" data-service="network">
+                    <img class="service-card__img" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80" alt="Server room with network cabling infrastructure">
+                    <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80')"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">06</span>
+                        <h3 class="service-card__title">Network<br>Installation</h3>
+                        <p class="service-card__desc">Ubiquiti UniFi network installation — Cat6, fibre, structured cabling and WiFi. Certified installers for businesses across Shropshire and the West Midlands.</p>
+                        <a href="networking.html" class="service-card__cta" data-hover>
+                            <span>Learn More</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="service-card__visual">
+                        <div class="service-card__icon service-card__icon--network"></div>
+                    </div>
+                </article>
+
+                <article class="service-card" data-service="panic">
+                    <img class="service-card__img" src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80" alt="Emergency panic alarm button">
+                    <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80')"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">07</span>
+                        <h3 class="service-card__title">Panic<br>Alarms</h3>
+                        <p class="service-card__desc">In emergency situations, a subtle way of raising the alarm can make all the difference. Discreet personal and fixed panic alarm systems.</p>
+                        <a href="contact.html" class="service-card__cta" data-hover>
+                            <span>Learn More</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="service-card__visual">
+                        <div class="service-card__icon service-card__icon--panic"></div>
+                    </div>
+                </article>
+
+                <article class="service-card" data-service="commercial">
+                    <img class="service-card__img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Modern commercial office building exterior">
+                    <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80')"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">08</span>
+                        <h3 class="service-card__title">Commercial<br>Security</h3>
+                        <p class="service-card__desc">Integrated security solutions for commercial premises. Combined alarm, CCTV, access control, and monitoring systems.</p>
+                        <a href="contact.html" class="service-card__cta" data-hover>
+                            <span>Learn More</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="service-card__visual">
+                        <div class="service-card__icon service-card__icon--commercial"></div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+        <div class="services__progress">
+            <div class="services__progress-bar" id="services-progress"></div>
+        </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3D TECHNOLOGY SHOWCASE ==================== -->
+    <section class="technology" id="technology">
+        <div class="technology__inner">
+            <div class="technology__text">
+                <span class="section-tag">OUR TECHNOLOGY</span>
+                <h2 class="section-title">Engineered for <span class="text-accent">Precision</span></h2>
+                <p class="technology__desc">
+                    We partner with the industry's most trusted manufacturers to deliver security systems 
+                    that are built to last. Every component is selected for reliability, every installation 
+                    is executed to the highest standard.
+                </p>
+                <div class="technology__features">
+                    <div class="technology__feature">
+                        <div class="technology__feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                            <h4>SSAIB Certified</h4>
+                            <p>Fully accredited installation standards</p>
+                        </div>
+                    </div>
+                    <div class="technology__feature">
+                        <div class="technology__feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div>
+                            <h4>24/7 Response</h4>
+                            <p>Round-the-clock emergency call-out</p>
+                        </div>
+                    </div>
+                    <div class="technology__feature">
+                        <div class="technology__feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                            <h4>Free Quotes</h4>
+                            <p>No obligation site surveys & estimates</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="technology__visual">
+                <canvas id="tech-canvas" class="technology__canvas"></canvas>
+                <div class="technology__hotspots">
+                    <div class="hotspot" data-hotspot="1">
+                        <div class="hotspot__pulse"></div>
+                        <div class="hotspot__label">HD IP Camera Array</div>
+                    </div>
+                    <div class="hotspot" data-hotspot="2">
+                        <div class="hotspot__pulse"></div>
+                        <div class="hotspot__label">Smart Access Panel</div>
+                    </div>
+                    <div class="hotspot" data-hotspot="3">
+                        <div class="hotspot__pulse"></div>
+                        <div class="hotspot__label">Central Control Hub</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="about" id="about">
+        <div class="about__inner">
+            <div class="about__visual">
+                <div class="about__image about__image--1" data-parallax="0.3">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80" alt="SSAIB certified security engineer installing alarm system in Telford" loading="lazy">
+                </div>
+                <div class="about__image about__image--2" data-parallax="0.5">
+                    <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=600&q=80" alt="CCTV monitoring screens in control room" loading="lazy">
+                </div>
+                <div class="about__image about__image--3" data-parallax="0.7">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Modern residential property with security" loading="lazy">
+                </div>
+            </div>
+            <div class="about__content">
+                <span class="section-tag">WHO WE ARE</span>
+                <h2 class="section-title">Protecting Shropshire <span class="text-accent">Since Day One</span></h2>
+                <div class="about__text">
+                    <p class="about__paragraph">
+                        Based in Telford, Archer Security provides <span class="text-highlight">SSAIB certified security systems</span> 
+                        to homes and businesses across Shropshire and the West Midlands. From commercial intruder alarms 
+                        to monitored CCTV, we design, install and maintain complete security solutions.
+                    </p>
+                    <p class="about__paragraph">
+                        Our engineers cover <span class="text-highlight">Telford, Shrewsbury, Wolverhampton, Stafford, Stoke-on-Trent</span> 
+                        and all surrounding areas. Whether you need an insurance-approved burglar alarm, a UniFi network 
+                        installation, or a full access control system — we deliver.
+                    </p>
+                    <p class="about__paragraph">
+                        We're <span class="text-highlight">fully qualified, insured and SSAIB certificated</span> and provide 
+                        FREE, no obligation quotes on all security installations.
+                    </p>
+                </div>
+                <div class="about__accreditations">
+                    <div class="accreditation" data-hover>
+                        <span class="accreditation__badge">SSAIB</span>
+                        <span class="accreditation__label">Certified</span>
+                    </div>
+                    <div class="accreditation" data-hover>
+                        <span class="accreditation__badge">IPAF</span>
+                        <span class="accreditation__label">Licensed</span>
+                    </div>
+                    <div class="accreditation" data-hover>
+                        <span class="accreditation__badge">ICO</span>
+                        <span class="accreditation__label">Registered</span>
+                    </div>
+                    <div class="accreditation" data-hover>
+                        <span class="accreditation__badge">HIKVISION</span>
+                        <span class="accreditation__label">VASP Partner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials__inner">
+            <span class="section-tag">CLIENT VOICES</span>
+            <h2 class="section-title">Trusted by <span class="text-accent">Thousands</span></h2>
+            <div class="testimonials__slider" id="testimonials-slider">
+                <div class="testimonial" data-testimonial="1">
+                    <div class="testimonial__stars">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <blockquote class="testimonial__quote">
+                        "Would definitely recommend. Archer Security installed our complete alarm and CCTV system. Professional from start to finish."
+                    </blockquote>
+                    <div class="testimonial__author">
+                        <span class="testimonial__name">Verified Customer</span>
+                        <span class="testimonial__location">Telford, Shropshire</span>
+                    </div>
+                </div>
+                <div class="testimonial" data-testimonial="2">
+                    <div class="testimonial__stars">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <blockquote class="testimonial__quote">
+                        "Exceptional service. The team was knowledgeable, tidy, and the system works flawlessly. We feel completely secure now."
+                    </blockquote>
+                    <div class="testimonial__author">
+                        <span class="testimonial__name">Commercial Client</span>
+                        <span class="testimonial__location">Shrewsbury, Shropshire</span>
+                    </div>
+                </div>
+                <div class="testimonial" data-testimonial="3">
+                    <div class="testimonial__stars">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <blockquote class="testimonial__quote">
+                        "From the initial survey to the final installation, everything was handled with care. The remote access feature is a game changer."
+                    </blockquote>
+                    <div class="testimonial__author">
+                        <span class="testimonial__name">Residential Client</span>
+                        <span class="testimonial__location">Telford, Shropshire</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials__nav">
+                <button class="testimonials__prev" aria-label="Previous testimonial" data-hover>&larr;</button>
+                <div class="testimonials__dots">
+                    <span class="testimonials__dot active"></span>
+                    <span class="testimonials__dot"></span>
+                    <span class="testimonials__dot"></span>
+                </div>
+                <button class="testimonials__next" aria-label="Next testimonial" data-hover>&rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GALLERY ==================== -->
+    <section class="gallery" id="gallery">
+        <div class="gallery__header">
+            <span class="section-tag">OUR WORK</span>
+            <h2 class="section-title">Recent <span class="text-accent">Installations</span></h2>
+        </div>
+        <div class="gallery__grid">
+            <div class="gallery__item gallery__item--wide">
+                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80" alt="Professional CCTV camera installation on modern building" loading="lazy">
+                <div class="gallery__item-overlay"><span class="gallery__item-label">CCTV Installation — Commercial, Telford</span></div>
+            </div>
+            <div class="gallery__item">
+                <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="Automated gate system at residential property" loading="lazy">
+                <div class="gallery__item-overlay"><span class="gallery__item-label">Electronic Gates — Shropshire</span></div>
+            </div>
+            <div class="gallery__item">
+                <img src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=600&q=80" alt="Alarm keypad installation" loading="lazy">
+                <div class="gallery__item-overlay"><span class="gallery__item-label">Intruder Alarm — Shrewsbury</span></div>
+            </div>
+            <div class="gallery__item">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="Access control door entry system" loading="lazy">
+                <div class="gallery__item-overlay"><span class="gallery__item-label">Access Control — West Midlands</span></div>
+            </div>
+            <div class="gallery__item gallery__item--wide">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Commercial building security infrastructure" loading="lazy">
+                <div class="gallery__item-overlay"><span class="gallery__item-label">Commercial Security — Telford &amp; Shropshire</span></div>
+            </div>
+            <div class="gallery__item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Residential property with integrated security" loading="lazy">
+                <div class="gallery__item-overlay"><span class="gallery__item-label">Residential Project — Shropshire</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PARTNERS ==================== -->
+    <section class="partners" id="partners">
+        <div class="partners__header">
+            <span class="section-tag">TRUSTED TECHNOLOGY</span>
+            <h2 class="section-title">Our <span class="text-accent">Partners</span></h2>
+        </div>
+        <div class="partners__marquee">
+            <div class="partners__track partners__track--1">
+                <div class="partner-logo" data-hover><span>PYRONIX</span></div>
+                <div class="partner-logo" data-hover><span>ORISEC</span></div>
+                <div class="partner-logo" data-hover><span>HIKVISION</span></div>
+                <div class="partner-logo" data-hover><span>TAKEX</span></div>
+                <div class="partner-logo" data-hover><span>OPTEX</span></div>
+                <div class="partner-logo" data-hover><span>PAXTON</span></div>
+                <div class="partner-logo" data-hover><span>PYRONIX</span></div>
+                <div class="partner-logo" data-hover><span>ORISEC</span></div>
+                <div class="partner-logo" data-hover><span>HIKVISION</span></div>
+                <div class="partner-logo" data-hover><span>TAKEX</span></div>
+                <div class="partner-logo" data-hover><span>OPTEX</span></div>
+                <div class="partner-logo" data-hover><span>PAXTON</span></div>
+            </div>
+            <div class="partners__track partners__track--2">
+                <div class="partner-logo" data-hover><span>SPLASHTOP</span></div>
+                <div class="partner-logo" data-hover><span>TEAM VIEWER</span></div>
+                <div class="partner-logo" data-hover><span>PYRONIX</span></div>
+                <div class="partner-logo" data-hover><span>HIKVISION</span></div>
+                <div class="partner-logo" data-hover><span>PAXTON</span></div>
+                <div class="partner-logo" data-hover><span>ORISEC</span></div>
+                <div class="partner-logo" data-hover><span>SPLASHTOP</span></div>
+                <div class="partner-logo" data-hover><span>TEAM VIEWER</span></div>
+                <div class="partner-logo" data-hover><span>PYRONIX</span></div>
+                <div class="partner-logo" data-hover><span>HIKVISION</span></div>
+                <div class="partner-logo" data-hover><span>PAXTON</span></div>
+                <div class="partner-logo" data-hover><span>ORISEC</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="contact" id="contact">
+        <div class="contact__inner">
+            <div class="contact__info">
+                <span class="section-tag">GET IN TOUCH</span>
+                <h2 class="section-title">Let's Secure <span class="text-accent">Your World</span></h2>
+                <p class="contact__desc">
+                    Ready to protect your property? Get in touch for a free, no-obligation quote. 
+                    Our team is available 24/7 for emergencies.
+                </p>
+                <div class="contact__details">
+                    <div class="contact__detail">
+                        <span class="contact__detail-label">24HR CONTACT</span>
+                        <a href="tel:+441952403696" class="contact__detail-value contact__detail-value--phone" data-hover>
+                            01952 403 696
+                        </a>
+                    </div>
+                    <div class="contact__detail">
+                        <span class="contact__detail-label">EMAIL</span>
+                        <a href="mailto:info@archersecurity.co.uk" class="contact__detail-value" data-hover>
+                            info@archersecurity.co.uk
+                        </a>
+                    </div>
+                    <div class="contact__detail">
+                        <span class="contact__detail-label">LOCATION</span>
+                        <span class="contact__detail-value">
+                            Unit H8, Halesfield 19<br>Telford TF7 4QT
+                        </span>
+                    </div>
+                    <div class="contact__detail">
+                        <span class="contact__detail-label">HOURS</span>
+                        <span class="contact__detail-value">
+                            Mon - Fri: 9:00 - 17:30<br>
+                            24hr Emergency Call-Out
+                        </span>
+                    </div>
+                </div>
+                <div class="contact__socials">
+                    <a href="https://www.facebook.com/alarmsandcctv/" class="contact__social" data-hover aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://wa.me/447972215329" class="contact__social" data-hover aria-label="WhatsApp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="contact__form-wrapper">
+                <form class="contact__form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" required class="form-input" placeholder=" ">
+                        <label for="name" class="form-label">Your Name</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" required class="form-input" placeholder=" ">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" id="phone" class="form-input" placeholder=" ">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="address" id="address" class="form-input" placeholder=" ">
+                        <label for="address" class="form-label">Property Address</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group form-group--textarea">
+                        <textarea name="message" id="message" required class="form-input form-textarea" placeholder=" "></textarea>
+                        <label for="message" class="form-label">Tell us about your security needs</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full" data-hover>
+                        <span>Send Enquiry</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" id="footer">
+        <div class="footer__line"></div>
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <span class="footer__logo">ARCHER SECURITY</span>
+                <p class="footer__tagline">SSAIB certified security installers — Telford, Shropshire &amp; West Midlands.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Services</h4>
+                    <a href="cctv.html" data-hover>CCTV Systems — Telford &amp; Shropshire</a>
+                    <a href="intruder-alarms.html" data-hover>Commercial &amp; Monitored Alarms</a>
+                    <a href="access-control.html" data-hover>Access Control — Shrewsbury</a>
+                    <a href="fire-alarms.html" data-hover>Fire Alarms — West Midlands</a>
+                    <a href="networking.html" data-hover>UniFi Network Installation</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Company</h4>
+                    <a href="index.html" data-hover>About Us</a>
+                    <a href="contact.html" data-hover>Contact</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Support</h4>
+                    <a href="support.html" data-hover>Remote Access</a>
+                    <a href="support.html" data-hover>Maintenance</a>
+                    <a href="tel:+441952403696" data-hover>Emergency Call-Out</a>
+                    <a href="support.html" data-hover>FAQs</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>&copy; 2025 Archer Security Ltd. Company No. 11340591. All rights reserved.</span>
+            <div class="footer__legal">
+                <a href="#" data-hover>Privacy Policy</a>
+                <a href="#" data-hover>Terms of Use</a>
+            </div>
+        </div>
+        <button class="footer__back-to-top" id="back-to-top" data-hover aria-label="Back to top">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4m0 0l-4 4m4-4l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+    </footer>
+
+    <script src="js/shaders.js" defer></script>
+    <script src="js/three-scenes.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://archersecurity.co.uk/support">
+    <title>Support &amp; Remote Assistance | 24/7 | Archer Security</title>
+    <meta name="description" content="24/7 remote support, emergency call-out &amp; maintenance for security systems. Splashtop remote access. Covering Telford, Shrewsbury &amp; Shropshire. Free advice.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+
+    <style>
+        .features { padding: var(--section-padding) 0; }
+        .features__inner { max-width: 1400px; margin: 0 auto; padding: 0 var(--container-padding); }
+        .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px; }
+        .feature-row:last-of-type { margin-bottom: 0; }
+        .feature-row__image img { width: 100%; height: auto; border-radius: 12px; display: block; }
+        .feature-row__content h3 { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin: 0 0 16px; color: var(--color-text); }
+        .feature-row__content p { font-size: 16px; line-height: 1.7; color: var(--color-text-secondary); margin: 0 0 24px; }
+        .feature-row__actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        .feature-row ul { list-style: none; padding: 0; margin: 0 0 24px; }
+        .feature-row ul li { position: relative; padding-left: 24px; margin-bottom: 10px; color: var(--color-text-secondary); font-size: 15px; }
+        .feature-row ul li::before { content: ''; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; background: var(--color-accent); border-radius: 50%; }
+        .feature-row--splashtop {
+            position: relative;
+        }
+        .feature-row__image--logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .feature-row__image--logo img {
+            animation: splashtopLogoFloat 4s ease-in-out infinite;
+        }
+        @keyframes splashtopLogoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        .feature-videos { margin-bottom: 100px; }
+        .feature-videos__header { text-align: center; margin-bottom: 40px; }
+        .feature-videos__header h3 { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--color-text); margin: 0 0 12px; }
+        .feature-videos__header p { font-size: 16px; line-height: 1.7; color: var(--color-text-secondary); }
+        .videos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+        .video-card { background: var(--color-bg-secondary); border-radius: 12px; overflow: hidden; border: 1px solid var(--color-glass-border); }
+        .video-card__frame { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-card__frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-card__title { padding: 16px 20px; font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--color-text); }
+        @media (max-width: 768px) { .feature-row { grid-template-columns: 1fr; gap: 32px; } .videos-grid { grid-template-columns: 1fr; } }
+        .cta-banner { padding: var(--section-padding) 0; text-align: center; background: var(--color-text); }
+        .cta-banner__inner { max-width: 600px; margin: 0 auto; padding: 0 var(--container-padding); }
+        .cta-banner__inner h2 { font-family: var(--font-display); font-size: 36px; font-weight: 700; color: #ffffff; margin: 0 0 16px; }
+        .cta-banner__phone { display: block; font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: var(--color-accent); text-decoration: none; margin-bottom: 24px; }
+        .cta-banner__phone:hover { text-decoration: underline; }
+        @media (max-width: 768px) { .feature-row { grid-template-columns: 1fr; gap: 32px; } .feature-row__image { order: -1; } .videos-grid { grid-template-columns: 1fr; } .cta-banner__phone { font-size: 24px; } }
+    </style>
+</head>
+<body>
+
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__content">
+            <canvas id="preloader-canvas" class="preloader__canvas"></canvas>
+            <div class="preloader__text">
+                <span class="preloader__word" data-text="ARCHER">ARCHER</span>
+                <span class="preloader__word" data-text="SECURITY">SECURITY</span>
+            </div>
+            <div class="preloader__progress">
+                <div class="preloader__bar"></div>
+                <span class="preloader__percent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CUSTOM CURSOR ==================== -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ==================== THREE.JS BACKGROUND ==================== -->
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-text">ARCHER</span>
+                <span class="nav__logo-sub">SECURITY</span>
+            </a>
+            <div class="nav__links" id="nav-links">
+                <a href="index.html" class="nav__link" data-hover>Home</a>
+                <a href="cctv.html" class="nav__link" data-hover>CCTV</a>
+                <a href="intruder-alarms.html" class="nav__link" data-hover>Intruder Alarms</a>
+                <a href="access-control.html" class="nav__link" data-hover>Access Control</a>
+                <a href="networking.html" class="nav__link" data-hover>Networking</a>
+                <a href="fire-alarms.html" class="nav__link" data-hover>Fire Alarms</a>
+                <a href="support.html" class="nav__link nav__link--active" data-hover>Support</a>
+                <a href="contact.html" class="nav__link nav__link--cta" data-hover>Get Protected</a>
+            </div>
+            <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero__inner">
+            <div class="hero__content">
+                <div class="hero__eyebrow">
+                    <span class="hero__eyebrow-line"></span>
+                    <span class="hero__eyebrow-text">WE'VE GOT YOU COVERED</span>
+                </div>
+                <h1 class="hero__title">
+                    <span class="hero__title-line"><span class="hero__title-word">SUPPORT</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word hero__title-word--accent">24/7 ASSISTANCE</span></span>
+                </h1>
+                <p class="hero__subtitle">
+                    24/7 remote support, emergency call-out and maintenance for security systems across Telford, Shrewsbury and Shropshire. Splashtop remote access — your security never sleeps, and neither do we.
+                </p>
+                <div class="hero__actions">
+                    <a href="tel:+441952403696" class="btn btn--primary" data-hover>
+                        <span>Emergency Call-Out</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="contact.html" class="btn btn--ghost" data-hover>
+                        <span>Contact Us</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero__image">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Support engineer providing remote assistance" loading="eager">
+                <div class="hero__image-overlay"></div>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <div class="hero__scroll-line"></div>
+            <span class="hero__scroll-text">SCROLL</span>
+        </div>
+    </section>
+
+    <!-- ==================== STATS BAR ==================== -->
+    <section class="stats" id="stats">
+        <div class="stats__inner">
+            <div class="stats__item">
+                <span class="stats__number">24</span>
+                <span class="stats__unit">/7</span>
+                <span class="stats__label">Call-Out</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number">Remote</span>
+                <span class="stats__label">Support</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number" data-target="15">0</span>
+                <span class="stats__plus">+</span>
+                <span class="stats__label">Years Exp</span>
+            </div>
+            <div class="stats__divider"></div>
+            <div class="stats__item">
+                <span class="stats__number">SSAIB</span>
+                <span class="stats__label">Certified</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES ==================== -->
+    <section class="features" id="features">
+        <div class="features__inner">
+
+            <!-- SECTION 1: Splashtop Remote Support -->
+            <div class="feature-row feature-row--image-left feature-row--splashtop">
+                <div class="feature-row__image feature-row__image--logo">
+                    <img src="https://i.pcmag.com/imagery/reviews/01L4dN75BPI44zYllZ1ymbU-29.fit_scale.size_1028x578.v1745009103.png" alt="Splashtop" style="max-width: 240px; height: auto;">
+                </div>
+                <div class="feature-row__content">
+                    <h3>Remote Support with Splashtop</h3>
+                    <p>In partnership with Splashtop, we offer a complete remote support service for your electronic security systems. Our engineers can diagnose issues, reconfigure settings, and perform system updates without needing to visit your property — saving you time and money.</p>
+                    <div class="feature-row__actions">
+                        <a href="https://www.pcmag.com/reviews/splashtop" class="btn btn--primary" target="_blank" rel="noopener" data-hover>
+                            <span>Learn About Splashtop</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Video Guides & Tutorials -->
+            <div class="feature-videos">
+                <div class="feature-videos__header">
+                    <h3>Video Guides &amp; Tutorials</h3>
+                    <p>Step-by-step walkthroughs for common system settings and maintenance tasks.</p>
+                </div>
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-card__frame">
+                            <iframe src="https://www.youtube.com/embed/r8xmfMht2tY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <h4 class="video-card__title">Changing Wifi Settings — Pyronix Intruder Panel</h4>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-card__frame">
+                            <iframe src="https://www.youtube.com/embed/GBIsgRmjij0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <h4 class="video-card__title">Changing Wifi Settings — Orisec Intruder Panel</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: Maintenance & Callout -->
+            <div class="feature-row feature-row--image-right">
+                <div class="feature-row__content">
+                    <h3>Maintenance &amp; Emergency Call-Out</h3>
+                    <p>Routine maintenance keeps your systems performing at their best. We provide full servicing, software updates, and 24/7 emergency call-outs. Call 01952 403696 for immediate assistance.</p>
+                    <ul>
+                        <li>Routine maintenance &amp; servicing</li>
+                        <li>Software &amp; firmware updates</li>
+                        <li>24/7 emergency response</li>
+                        <li>Remote diagnostics via Splashtop</li>
+                    </ul>
+                </div>
+                <div class="feature-row__image">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80" alt="Engineer working on security system">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq" id="faq">
+        <div class="faq__inner">
+            <div class="faq__header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Frequently Asked <span class="text-accent">Questions</span></h2>
+            </div>
+            <div class="faq__list">
+                <details class="faq__item">
+                    <summary class="faq__question">What remote support options are available?</summary>
+                    <p class="faq__answer">We offer remote support via Splashtop SOS and TeamViewer, allowing our engineers to access your systems remotely for fast diagnosis and resolution.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">How quickly can you respond to an emergency?</summary>
+                    <p class="faq__answer">We operate a 24/7 emergency call-out service. Our engineers can typically be on-site within hours depending on your location.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Do you offer maintenance contracts?</summary>
+                    <p class="faq__answer">Yes, we provide tailored maintenance contracts for both residential and commercial clients, ensuring your systems remain in optimal condition year-round.</p>
+                </details>
+                <details class="faq__item">
+                    <summary class="faq__question">Can you remotely update my system software?</summary>
+                    <p class="faq__answer">Yes, many system updates can be performed remotely via Splashtop, avoiding the need for an on-site visit.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA BANNER ==================== -->
+    <section class="cta-banner" id="cta">
+        <div class="cta-banner__inner">
+            <h2>NEED IMMEDIATE HELP?</h2>
+            <a href="tel:+441952403696" class="cta-banner__phone" data-hover>01952 403696</a>
+            <a href="contact.html" class="btn btn--primary" data-hover>
+                <span>Contact Us</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" id="footer">
+        <div class="footer__line"></div>
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <span class="footer__logo">ARCHER SECURITY</span>
+                <p class="footer__tagline">Protecting what matters, since day one.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Services</h4>
+                    <a href="cctv.html" data-hover>CCTV Systems</a>
+                    <a href="intruder-alarms.html" data-hover>Burglar Alarms</a>
+                    <a href="access-control.html" data-hover>Access Control</a>
+                    <a href="fire-alarms.html" data-hover>Fire Alarms</a>
+                    <a href="networking.html" data-hover>Network Installation</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Company</h4>
+                    <a href="index.html#about" data-hover>About Us</a>
+                    <a href="index.html" data-hover>Home</a>
+                    <a href="index.html#technology" data-hover>Technology</a>
+                    <a href="contact.html" data-hover>Contact</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Support</h4>
+                    <a href="support.html" data-hover>Remote Support</a>
+                    <a href="support.html#features" data-hover>Maintenance</a>
+                    <a href="tel:+441952403696" data-hover>Emergency Call-Out</a>
+                    <a href="support.html#faq" data-hover>FAQs</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>&copy; 2025 Archer Security Ltd. Company No. 11340591. All rights reserved.</span>
+            <div class="footer__legal">
+                <a href="#" data-hover>Privacy Policy</a>
+                <a href="#" data-hover>Terms of Use</a>
+            </div>
+        </div>
+        <button class="footer__back-to-top" id="back-to-top" data-hover aria-label="Back to top">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4m0 0l-4 4m4-4l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+    </footer>
+
+    <script src="js/shaders.js" defer></script>
+    <script src="js/three-scenes.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>

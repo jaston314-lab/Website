@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://archersecurity.co.uk/contact">
+    <title>Contact Archer Security | Free Quote | Telford, Shropshire</title>
+    <meta name="description" content="Get a free, no-obligation security system quote in Telford, Shrewsbury &amp; Shropshire. 24/7 emergency: 01952 403696. SSAIB certified installers.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+</head>
+<body>
+
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__content">
+            <canvas id="preloader-canvas" class="preloader__canvas"></canvas>
+            <div class="preloader__text">
+                <span class="preloader__word" data-text="ARCHER">ARCHER</span>
+                <span class="preloader__word" data-text="SECURITY">SECURITY</span>
+            </div>
+            <div class="preloader__progress">
+                <div class="preloader__bar"></div>
+                <span class="preloader__percent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CUSTOM CURSOR ==================== -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ==================== THREE.JS BACKGROUND ==================== -->
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-text">ARCHER</span>
+                <span class="nav__logo-sub">SECURITY</span>
+            </a>
+            <div class="nav__links" id="nav-links">
+                <a href="index.html" class="nav__link" data-hover>Home</a>
+                <a href="cctv.html" class="nav__link" data-hover>CCTV</a>
+                <a href="intruder-alarms.html" class="nav__link" data-hover>Intruder Alarms</a>
+                <a href="access-control.html" class="nav__link" data-hover>Access Control</a>
+                <a href="networking.html" class="nav__link" data-hover>Networking</a>
+                <a href="fire-alarms.html" class="nav__link" data-hover>Fire Alarms</a>
+                <a href="support.html" class="nav__link" data-hover>Support</a>
+                <a href="contact.html" class="nav__link nav__link--active" data-hover>Contact</a>
+            </div>
+            <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero hero--text-only" id="hero">
+        <div class="hero__inner">
+            <div class="hero__content hero__content--full">
+                <div class="hero__eyebrow">
+                    <span class="hero__eyebrow-line"></span>
+                    <span class="hero__eyebrow-text">GET IN TOUCH</span>
+                </div>
+                <h1 class="hero__title">
+                    <span class="hero__title-line"><span class="hero__title-word">LET'S</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word">SECURE</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word hero__title-word--accent">YOUR</span></span>
+                    <span class="hero__title-line"><span class="hero__title-word hero__title-word--accent">WORLD</span></span>
+                </h1>
+                <p class="hero__subtitle">
+                    Ready to protect your property? Get in touch for a free, no-obligation quote. Our SSAIB certified team covers Telford, Shrewsbury, Wolverhampton, Stafford, Stoke-on-Trent and all of Shropshire.
+                </p>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <div class="hero__scroll-line"></div>
+            <span class="hero__scroll-text">SCROLL</span>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="contact" id="contact">
+        <div class="contact__inner">
+            <div class="contact__info">
+                <span class="section-tag">CONTACT DETAILS</span>
+                <h2 class="section-title">Reach <span class="text-accent">Out</span></h2>
+                <p class="contact__desc">
+                    We provide free, no-obligation quotes for all security system installations.
+                    Based in Telford, we cover Shropshire including Shrewsbury, Newport, Bridgnorth
+                    and all surrounding areas. Whether you need a single camera or a fully integrated
+                    security system, our team is ready to help.
+                </p>
+                <div class="contact__details">
+                    <div class="contact__detail">
+                        <span class="contact__detail-label">24HR CONTACT</span>
+                        <a href="tel:01952403696" class="contact__detail-value contact__detail-value--phone" data-hover>
+                            01952 403 696
+                        </a>
+                    </div>
+                    <div class="contact__detail">
+                        <span class="contact__detail-label">EMAIL</span>
+                        <a href="mailto:info@archersecurity.co.uk" class="contact__detail-value" data-hover>
+                            info@archersecurity.co.uk
+                        </a>
+                    </div>
+                    <div class="contact__detail">
+                        <span class="contact__detail-label">LOCATION</span>
+                        <span class="contact__detail-value">
+                            Unit H8, Halesfield 19<br>Telford TF7 4QT
+                        </span>
+                    </div>
+                    <div class="contact__detail">
+                        <span class="contact__detail-label">HOURS</span>
+                        <span class="contact__detail-value">
+                            Mon - Fri: 9:00 - 17:30<br>
+                            24hr Emergency Call-Out
+                        </span>
+                    </div>
+                </div>
+                <div class="contact__socials">
+                    <a href="https://www.facebook.com/alarmsandcctv/" class="contact__social" data-hover aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://wa.me/447972215329" class="contact__social" data-hover aria-label="WhatsApp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </a>
+                </div>
+                <div class="contact__business">
+                    <h4 class="contact__business-title">BUSINESS DETAILS</h4>
+                    <ul class="contact__business-list">
+                        <li>
+                            <span class="contact__business-label">Company Number</span>
+                            <span class="contact__business-value">11340591</span>
+                        </li>
+                        <li>
+                            <span class="contact__business-label">Certification</span>
+                            <span class="contact__business-value">SSAIB Certified</span>
+                        </li>
+                        <li>
+                            <span class="contact__business-label">Coverage</span>
+                            <span class="contact__business-value">Telford, Shrewsbury, Shropshire</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact__form-wrapper">
+                <form class="contact__form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" required class="form-input" placeholder=" ">
+                        <label for="name" class="form-label">Your Name</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" required class="form-input" placeholder=" ">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" id="phone" class="form-input" placeholder=" ">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="address" id="address" class="form-input" placeholder=" ">
+                        <label for="address" class="form-label">Property Address</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group form-group--select">
+                        <select name="service" id="service" class="form-input" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="CCTV">CCTV</option>
+                            <option value="Intruder Alarms">Intruder Alarms</option>
+                            <option value="Access Control">Access Control</option>
+                            <option value="Fire Alarms">Fire Alarms</option>
+                            <option value="Network Installation">Network Installation</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="service" class="form-label form-label--select">Service Type</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group form-group--textarea">
+                        <textarea name="message" id="message" required class="form-input form-textarea" placeholder=" "></textarea>
+                        <label for="message" class="form-label">Tell us about your security needs</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full" data-hover>
+                        <span>Send Enquiry</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EMERGENCY ==================== -->
+    <section class="emergency" id="emergency">
+        <div class="emergency__inner">
+            <span class="emergency__eyebrow">24/7 AVAILABLE</span>
+            <h2 class="emergency__heading">24/7 EMERGENCY CALL-OUT</h2>
+            <a href="tel:01952403696" class="emergency__phone" data-hover>01952 403 696</a>
+            <p class="emergency__text">
+                Available 24 hours a day, 7 days a week. Our engineers are always on standby.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" id="footer">
+        <div class="footer__line"></div>
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <a href="index.html" class="footer__logo">ARCHER SECURITY</a>
+                <p class="footer__tagline">Protecting what matters, since day one.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Services</h4>
+                    <a href="cctv.html" data-hover>CCTV Systems</a>
+                    <a href="intruder-alarms.html" data-hover>Burglar Alarms</a>
+                    <a href="access-control.html" data-hover>Access Control</a>
+                    <a href="fire-alarms.html" data-hover>Fire Alarms</a>
+                    <a href="networking.html" data-hover>Network Installation</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Company</h4>
+                    <a href="index.html#about" data-hover>About Us</a>
+                    <a href="index.html#testimonials" data-hover>Reviews</a>
+                    <a href="index.html#partners" data-hover>Accreditations</a>
+                    <a href="contact.html" data-hover>Contact</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__col-title">Support</h4>
+                    <a href="support.html" data-hover>Remote Access</a>
+                    <a href="support.html" data-hover>Maintenance</a>
+                    <a href="support.html" data-hover>Emergency Call-Out</a>
+                    <a href="support.html" data-hover>FAQs</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>&copy; 2025 Archer Security Ltd. Company No. 11340591. All rights reserved.</span>
+            <div class="footer__legal">
+                <a href="#" data-hover>Privacy Policy</a>
+                <a href="#" data-hover>Terms of Use</a>
+            </div>
+        </div>
+        <button class="footer__back-to-top" id="back-to-top" data-hover aria-label="Back to top">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4m0 0l-4 4m4-4l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+    </footer>
+
+    <script src="js/shaders.js" defer></script>
+    <script src="js/three-scenes.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>
+
