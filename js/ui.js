@@ -1,7 +1,7 @@
 /* ============================================
    UI.JS — Premium Micro-Interactions Engine
-   Magnetic cursor · kinetic hover · click burst
-   spring physics · image distortion · glitch text
+   Magnetic cursor · spring physics · glitch text
+   click burst · kinetic hover · page transitions
    ============================================ */
 
 window.ArcherUI = (function () {
@@ -18,6 +18,7 @@ window.ArcherUI = (function () {
         listeners.forEach(({ target, event, handler, options }) => {
             target.removeEventListener(event, handler, options);
         });
+        listeners.length = 0;
     }
 
     window.addEventListener('pagehide', destroyAll);
@@ -34,27 +35,26 @@ window.ArcherUI = (function () {
         const ring = cursorEl.querySelector('.cursor__ring');
         if (!dot || !ring) return;
 
-        // Spring physics state
         let mx = 0, my = 0;
         let rx = 0, ry = 0;
         let rvx = 0, rvy = 0;
-        const stiffness = 0.08;
-        const damping = 0.75;
-        let magTarget = null; // Element being magnetically attracted
+        const stiffness = 0.06;
+        const damping = 0.72;
+        let magTarget = null;
         let rafId = null;
         let hoveredElement = null;
+        let isClicking = false;
 
         on(document, 'mousemove', (e) => {
             mx = e.clientX;
             my = e.clientY;
-            dot.style.transform = `translate(${mx - 4}px, ${my - 4}px)`;
+            dot.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
         }, { passive: true });
 
-        // Magnetic detection — find nearest [data-magnetic] element
         on(document, 'mousemove', (e) => {
             const els = document.querySelectorAll('[data-magnetic], .btn, .nav__link, .accreditation, .partner-logo');
             let closest = null;
-            let closestDist = 100; // Magnetic radius in px
+            let closestDist = 120;
 
             els.forEach(el => {
                 const rect = el.getBoundingClientRect();
@@ -77,15 +77,14 @@ window.ArcherUI = (function () {
                 const cx = rect.left + rect.width / 2;
                 const cy = rect.top + rect.height / 2;
                 const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
-                const pull = Math.max(0, 1 - dist / 100);
-                const offsetX = (e.clientX - cx) * pull * 0.3;
-                const offsetY = (e.clientY - cy) * pull * 0.3;
+                const pull = Math.max(0, 1 - dist / 120);
+                const offsetX = (e.clientX - cx) * pull * 0.35;
+                const offsetY = (e.clientY - cy) * pull * 0.35;
                 magTarget.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
                 magTarget.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
             }
         }, { passive: true });
 
-        // Spring-based ring follow
         function springLoop() {
             const dx = mx - rx;
             const dy = my - ry;
@@ -95,29 +94,27 @@ window.ArcherUI = (function () {
             rvy *= damping;
             rx += rvx;
             ry += rvy;
-            ring.style.transform = `translate(${rx - 20}px, ${ry - 20}px)`;
+            ring.style.transform = `translate(${rx - 24}px, ${ry - 24}px)`;
             rafId = requestAnimationFrame(springLoop);
         }
         rafId = requestAnimationFrame(springLoop);
         window.addEventListener('pagehide', () => { if (rafId) cancelAnimationFrame(rafId); });
 
-        // Hover class toggle
         document.querySelectorAll('[data-hover], a, button').forEach(el => {
             on(el, 'mouseenter', () => {
                 cursorEl.classList.add('cursor--hover');
                 hoveredElement = el;
 
-                // Kinetic text effect on buttons
                 if (el.classList.contains('btn')) {
-                    el.style.transform = 'scale(1.03)';
+                    el.style.transform = 'scale(1.04)';
                     el.style.transition = 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)';
                 }
 
-                // Image distortion on service cards
                 const cardImg = el.closest('.service-card')?.querySelector('.service-card__img');
                 if (cardImg) {
-                    cardImg.style.transform = 'scale(1.06)';
+                    cardImg.style.transform = 'scale(1.08)';
                     cardImg.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                    cardImg.style.filter = 'brightness(1.2)';
                 }
             });
             on(el, 'mouseleave', () => {
@@ -131,25 +128,29 @@ window.ArcherUI = (function () {
                 const cardImg = el.closest('.service-card')?.querySelector('.service-card__img');
                 if (cardImg) {
                     cardImg.style.transform = '';
+                    cardImg.style.filter = '';
                 }
             });
         });
 
-        // Click burst (ring expansion)
-        on(document, 'click', () => {
+        on(document, 'mousedown', () => {
+            isClicking = true;
             ring.style.transition = 'none';
             ring.style.width = '24px';
             ring.style.height = '24px';
             ring.style.opacity = '1';
-            ring.style.borderColor = '#ffffff';
+            ring.style.borderColor = 'var(--color-accent-light)';
+            ring.style.boxShadow = '0 0 40px rgba(0, 212, 255, 0.6)';
+        });
 
-            requestAnimationFrame(() => {
-                ring.style.transition = 'width 0.6s cubic-bezier(0, 0.5, 0.3, 1), height 0.6s cubic-bezier(0, 0.5, 0.3, 1), opacity 0.6s, border-color 0.6s';
-                ring.style.width = '40px';
-                ring.style.height = '40px';
-                ring.style.opacity = '0.4';
-                ring.style.borderColor = 'var(--color-accent)';
-            });
+        on(document, 'mouseup', () => {
+            isClicking = false;
+            ring.style.transition = 'width 0.7s cubic-bezier(0, 0.5, 0.3, 1), height 0.7s cubic-bezier(0, 0.5, 0.3, 1), opacity 0.7s, border-color 0.7s, box-shadow 0.7s';
+            ring.style.width = '48px';
+            ring.style.height = '48px';
+            ring.style.opacity = '0.5';
+            ring.style.borderColor = 'var(--color-accent)';
+            ring.style.boxShadow = '0 0 24px rgba(0, 212, 255, 0.3), inset 0 0 24px rgba(0, 212, 255, 0.08)';
         });
     }
 
@@ -180,7 +181,7 @@ window.ArcherUI = (function () {
         let timer;
 
         function step() {
-            progress += Math.random() * 18 + 5;
+            progress += Math.random() * 16 + 4;
             if (progress >= 100) {
                 progress = 100;
                 if (bar) bar.style.width = '100%';
@@ -193,7 +194,7 @@ window.ArcherUI = (function () {
             if (bar) bar.style.width = `${progress}%`;
             if (percent) percent.textContent = `${Math.round(progress)}%`;
             if (preloaderScene) preloaderScene.setProgress(progress / 100);
-            timer = setTimeout(step, 100);
+            timer = setTimeout(step, 80);
         }
 
         function completePreloader() {
@@ -211,7 +212,7 @@ window.ArcherUI = (function () {
                 if (typeof ScrollTrigger !== 'undefined') {
                     ScrollTrigger.refresh();
                 }
-            }, 1200);
+            }, 1400);
         }
 
         step();
@@ -316,9 +317,11 @@ window.ArcherUI = (function () {
             setTimeout(() => {
                 span.textContent = 'Enquiry Sent!';
                 btn.style.background = '#00cc88';
+                btn.style.boxShadow = '0 4px 24px rgba(0, 204, 136, 0.3)';
                 setTimeout(() => {
                     span.textContent = originalText;
                     btn.style.background = '';
+                    btn.style.boxShadow = '';
                     btn.disabled = false;
                     form.reset();
                 }, 2500);
@@ -327,7 +330,7 @@ window.ArcherUI = (function () {
     }
 
     // ============================================
-    // GLITCH TEXT (on page load for hero)
+    // GLITCH TEXT
     // ============================================
     function glitchText(selector, delay) {
         const el = document.querySelector(selector);
@@ -340,7 +343,6 @@ window.ArcherUI = (function () {
 
     // ============================================
     // PAGE TRANSITION SYSTEM
-    // First visit → full preloader. Navigation → body fade-in.
     // ============================================
     function initPageTransition() {
         var visited = sessionStorage.getItem('archer_visited');

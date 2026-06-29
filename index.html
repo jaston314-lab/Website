@@ -79,6 +79,12 @@
 
     <!-- Holographic scanline overlay -->
     <div class="scanlines" aria-hidden="true"></div>
+    <!-- Noise texture overlay -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <!-- Mouse trail canvas -->
+    <canvas id="trail-canvas" class="trail-canvas"></canvas>
+    <!-- Energy burst container -->
+    <div id="energy-burst-container" aria-hidden="true"></div>
 
     <!-- ==================== PRELOADER ==================== -->
     <div id="preloader" class="preloader">
@@ -206,7 +212,7 @@
             <div class="services__track">
                 <div class="services__wrapper">
 
-                <article class="service-card" data-service="alarms">
+                <article class="service-card tilt-element" data-service="alarms" data-tilt>
                     <img class="service-card__img" src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=600&q=80" alt="Burglar alarm keypad with blue backlight">
                     <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=600&q=80')"></div>
                     <div class="service-card__content">
@@ -223,7 +229,7 @@
                     </div>
                 </article>
 
-                <article class="service-card" data-service="cctv">
+                <article class="service-card tilt-element" data-service="cctv" data-tilt>
                     <img class="service-card__img" src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=80" alt="CCTV security camera monitoring system">
                     <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=80')"></div>
                     <div class="service-card__content">
@@ -240,7 +246,7 @@
                     </div>
                 </article>
 
-                <article class="service-card" data-service="access">
+                <article class="service-card tilt-element" data-service="access" data-tilt>
                     <img class="service-card__img" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="Electronic access control fob reader">
                     <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80')"></div>
                     <div class="service-card__content">
@@ -257,7 +263,7 @@
                     </div>
                 </article>
 
-                <article class="service-card" data-service="fire">
+                <article class="service-card tilt-element" data-service="fire" data-tilt>
                     <img class="service-card__img" src="https://images.unsplash.com/photo-1565608087341-404b25492fee?w=600&q=80" alt="Fire alarm smoke detector on ceiling">
                     <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1565608087341-404b25492fee?w=600&q=80')"></div>
                     <div class="service-card__content">
@@ -274,7 +280,7 @@
                     </div>
                 </article>
 
-                <article class="service-card" data-service="gates">
+                <article class="service-card tilt-element" data-service="gates" data-tilt>
                     <img class="service-card__img" src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="Automated electronic entrance gates">
                     <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80')"></div>
                     <div class="service-card__content">
@@ -291,7 +297,7 @@
                     </div>
                 </article>
 
-                <article class="service-card" data-service="network">
+                <article class="service-card tilt-element" data-service="network" data-tilt>
                     <img class="service-card__img" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80" alt="Server room with network cabling infrastructure">
                     <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80')"></div>
                     <div class="service-card__content">
@@ -308,7 +314,7 @@
                     </div>
                 </article>
 
-                <article class="service-card" data-service="panic">
+                <article class="service-card tilt-element" data-service="panic" data-tilt>
                     <img class="service-card__img" src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80" alt="Emergency panic alarm button">
                     <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80')"></div>
                     <div class="service-card__content">
@@ -325,7 +331,7 @@
                     </div>
                 </article>
 
-                <article class="service-card" data-service="commercial">
+                <article class="service-card tilt-element" data-service="commercial" data-tilt>
                     <img class="service-card__img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Modern commercial office building exterior">
                     <div class="service-card__bg" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80')"></div>
                     <div class="service-card__content">
@@ -720,6 +726,7 @@
 
     <script src="js/shaders.js" defer></script>
     <script src="js/three-scenes.js" defer></script>
+    <script src="js/effects.js" defer></script>
     <script src="js/animations.js" defer></script>
     <script src="js/ui.js" defer></script>
     <script src="js/app.js" defer></script>

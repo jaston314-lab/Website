@@ -133,6 +133,10 @@ const ArcherApp = (function () {
         updateState();
 
         // Always-initialize modules (no deps needed)
+        if (window.ArcherEffects && !STATE.reduceMotion) {
+            window.ArcherEffects.initAll();
+        }
+
         if (window.ArcherUI) {
             window.ArcherUI.initPageTransition();
             window.ArcherUI.initCursor();
@@ -175,6 +179,7 @@ const ArcherApp = (function () {
                     window.ArcherAnimations.initContactAnimations();
                     window.ArcherAnimations.initFooterAnimations();
                     window.ArcherAnimations.initSectionReveals();
+                    window.ArcherAnimations.initSectionDividers();
                     window.ArcherAnimations.initSmoothScroll();
                 }
             } else {
